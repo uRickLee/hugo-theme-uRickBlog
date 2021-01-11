@@ -1,0 +1,14 @@
+<div class="copyright">
+    <p>
+        {{ with .Site.Params.footer.copyright }} {{ . }} {{ T `footer-copyright` }} {{ end }}
+        {{ T `footer-pv` }}：<span title="{{ T `footer-pv-title` }}" id="busuanzi_value_site_pv"></span>
+        {{ T `footer-uv` }}：<span title="{{ T `footer-uv-title` }}" id="busuanzi_value_site_uv"></span>
+        {{ if .Site.Params.footer.licence }}
+        <a rel="license"  target="_bank" href="http://creativecommons.org/licenses/by/4.0/" title="{{ T `footer-cc-title` }}">
+            <img alt="License" src="{{ "images/cc4-88x31.png" |relURL }}" />
+        </a>
+        {{ end }}
+        <a href="https://gohugo.io/" target="_bank" title="{{ T `footer-hugo` }}"> <img alt="hugo" src="{{"/images/hugo.png" | relURL }}" /></a>
+        Power By <a href="https://gitee.com/uRick/hugo-theme-uRickBlog" target="_bank">Theme-uRickBlog</a>
+    </p> 
+</div>

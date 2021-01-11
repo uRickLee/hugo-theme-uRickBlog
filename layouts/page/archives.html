@@ -1,0 +1,29 @@
+{{ define "padding-class" }}pd{{ end }} {{ define "main" }}
+<div class="archives card mh-400">
+    <div class="center-line-title center">
+        <h1>{{ .Title }}</h1>
+    </div>
+    <ul>
+        {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }} 
+        {{ range $pages.GroupByDate "2006" }}
+         {{ $id := lower (replace .Key " " "-") }}
+        <li class="archive-item">
+            <h1 class="archive-title">
+              {{/*    <i class="iconfont icon-arrow-down-filling" ></i>
+                <i class="iconfont icon-arrow-right-filling" ></i>  */}}
+                {{ .Key }}
+            </h1>
+            <div id="{{ $id }}">
+                {{ range .Pages }}
+                <ul class="archive-posts">
+                    <li class="post-item">
+                        <a class="post-title" href=" {{.Permalink | relURL }}">{{- .Date.Format .Site.Params.dateFormat.published -}} &nbsp; {{ .Title }}</a>
+                    </li>
+                </ul>
+                {{ end }}
+            </div>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

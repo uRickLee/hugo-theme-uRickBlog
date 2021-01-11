@@ -1,0 +1,59 @@
+{{ $image := partialCached "utils/image.html" (dict "Context" . ) . }}
+{{ $catColor := .Site.Data.catColor }}
+<div class="col-12 card -radius -pointer">
+    <div class="post-card -small -horizontal">
+        {{ if $image.exists }}
+            {{ if .Params.categories }}
+                {{ range first 1 (.GetTerms "categories") }}
+                    {{ $color := (index $catColor .LinkTitle)}}
+                    <div class="card__category" {{if $color }} style="background-color:{{$color}}" {{ end }}><a href="{{ .RelPermalink }}" title="{{ T `category-title` }}"> {{ .LinkTitle }}</a></div>
+                {{ end }}
+            {{ end }}
+            <a class="card__cover" href="{{ .RelPermalink }}">
+                <img src="{{$image.permalink}}" alt="{{ .Title }}" />
+            </a>
+        {{ end }}
+        <!-- Post content -->
+        <div class="card__content">
+            {{ if not $image.exists }}
+                {{ if .Params.categories }}
+                    {{ range first 1 (.GetTerms "categories") }}
+                    {{ $color := (index $catColor .LinkTitle)}}
+                    <h5 class="card__content-category" {{if $color }} style="background-color:{{$color}}" {{ end }}><a href="{{ .RelPermalink }}" title="{{ T `category-title` }}"> {{ .LinkTitle }} </a></h5>
+                    {{end }}
+                {{ end }}
+            {{ end }}
+            <a class="card__content-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <div class="card__content-info">
+                <div class="info__item" title="{{ T `publishDate-title` }}"><i class="iconfont icon-calendar"></i>
+                    <p>{{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}} </p>
+                </div>
+                <div class="info__item" title="{{ T `readingTime-title` }}"><i class="iconfont icon-clock"></i>
+                    <p>{{ .ReadingTime }} {{ T `readingTime-unit` }}</p>
+                </div>
+                <div class="info__item" title="{{ T `authors-title` }}"><i class="iconfont icon-users"></i>
+                    {{ with .Params.author }}
+                    <p>{{ delimit . "," }}</p>
+                    {{ else }}
+                    <p> {{ .Site.Params.author }}</p>
+                    {{ end }}
+                </div>
+            </div>
+            {{ with .Param "description" }}
+            <p class="card__content-description"> {{ . }} </p>
+            {{ else }}
+            <p class="card__content-description"> {{ .Summary }} </p>
+            {{ end }}
+
+            {{ if .Params.tags }}
+            <div class="card__content-tags" title="{{ T `tag-title` }}"><i class="iconfont icon-tags"></i>
+                <p>
+                    {{ range (.GetTerms "tags") }}
+                    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    {{ end }}
+                </p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>

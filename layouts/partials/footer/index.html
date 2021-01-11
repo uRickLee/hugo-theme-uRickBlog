@@ -1,0 +1,19 @@
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    {{ partialCached "footer/about.html" . }}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        {{ partialCached "footer/link.html" . }}
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        {{ partialCached "footer/subcribe.html" . }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ partialCached "footer/copyright.html" . }}
+        {{ partial "utils/adsorption.html" . }}
+</footer>
+{{- partial "footer/script.html" . -}}

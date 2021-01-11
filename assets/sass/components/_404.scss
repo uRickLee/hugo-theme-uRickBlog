@@ -1,0 +1,65 @@
+/***************************
+	404 error
+***************************/
+.error-404 {
+  svg {
+    width     : 100%;
+    visibility: hidden;
+  }
+
+  h1 {
+    font-size  : 5.5em;
+    margin     : emCal(16, 8) 0;
+    font-weight: bold;
+    
+  }
+
+  h2 {
+    font-weight: bold;
+    display: flex;
+  }
+
+  .btn {
+    z-index           : 1;
+    overflow          : hidden;
+    background        : transparent;
+    position          : relative;
+    padding           : 8px 50px;
+    border-radius     : 30px;
+    cursor            : pointer;
+    font-size         : 1em;
+    letter-spacing    : 2px;
+    -webkit-transition: 0.2s ease;
+    transition        : 0.2s ease;
+    font-weight       : bold;
+    margin            : 5px 0px;
+    border            : 4px solid setColor(highlight);
+
+    &::before {
+      content           : "";
+      position          : absolute;
+      width             : 100%;
+      left              : 0;
+      top               : 0;
+      width             : 0%;
+      height            : 100%;
+      background        : setColor(highlight);
+      z-index           : -1;
+      -webkit-transition: 0.2s ease;
+      transition        : 0.2s ease;
+    }
+
+    &:hover {
+      color             : setColor(white);
+      background        : setColor(highlight);
+      -webkit-transition: 0.2s ease;
+      transition        : 0.2s ease;
+    }
+  }
+
+  @include mq(md) {
+    svg {
+      display: none;
+    }
+  }
+}

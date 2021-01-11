@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{- partial "head/index.html" . -}}
+<body>
+    {{- partial  "header.html" . -}} 
+    {{- partialCached "utils/loader.html" . -}}
+    <div class="{{ block `padding-class` . }}{{ end }} " id="content">
+        <div class="container">
+            {{- block "main" . }}{{- end }}
+        </div>
+    </div>
+    {{ partial "footer/index.html" . }}
+</body>
+</html>

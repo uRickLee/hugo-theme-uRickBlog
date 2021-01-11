@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /plugins/
+Disallow: /sass/
+Disallow: index.json

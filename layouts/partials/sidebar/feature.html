@@ -1,0 +1,29 @@
+{{/* Feature Post*/}}
+<div class="blog-sidebar card">
+    <div class="blog-sidebar-section -feature-post">
+        <div class="center-line-title">
+            <h5><a href="#">{{ T `sidebar-post` }}</a></h5>
+        </div>
+        {{ $limit := default 10 .Site.Params.sidebar.featureLimit }}
+        {{ $featureField := default "feature" .Site.Params.sidebar.featureFeild }}
+        {{ range first $limit ( where .Site.Pages (printf "Params.%s" $featureField) "==" true )}}
+        <div class="post-card -tiny">
+            {{ $image := partialCached "utils/image.html" (dict "Context" . ) . }}
+            {{ if $image.exists }}
+            <a class="card__cover" href="{{ .RelPermalink }}">
+                <img src="{{$image.permalink}}" alt="{{ .Title }}" />
+            </a>
+            {{ end }}
+            <div class="card__content">
+                <a class="card__content-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <div class="card__content-info">
+                    <div class="info__item" title="{{ T `publishDate-title` }}"><i class="iconfont icon-calendar"></i>
+                        <p>{{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>

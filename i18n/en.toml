@@ -1,0 +1,87 @@
+[sidebar-post]
+    other = "Feature Posts"
+[sidebar-categories]
+    other = "Categories"
+[sidebar-tags]
+    other = "Tags"
+[publishDate-title]
+    other="Published Date"
+[readingTime-title]
+    other="Reading Time"
+[readingTime-unit]
+    other="Mini" 
+[authors-title]
+    other="Authors"
+[tag-title]
+    other="Post Tag"
+[category-title]
+    other="Category"
+[post-type-title]
+other="Recently"
+[post-authors]
+    other="Authors"
+[post-reading]
+    other="Reading"
+[post-publishDate]
+    other="Date"
+[post-uv]
+    other="UV"
+[post-uv-title]
+    other="Post Unique Visitors"
+[post-abstract]
+    other="Post Abstract"
+[post-prev]
+    other="Prev"
+[post-next]
+    other="Next"
+[post-toc]
+    other="TOC"
+[post-from]
+    other="Blog Sources"
+
+[footer-aboutUS]
+    other="About US"
+[footer-coordinate-title]
+    other="Coordinate"
+[footer-phone-title]
+    other="Phone"
+[footer-email-title]
+    other="Email"
+[footer-rss-title]
+    other="RSS"
+[footer-sitemap-title]
+    other="sitemap"
+[footer-link]
+    other="Link"
+[footer-subscribe]
+    other="Subscribe"
+[footer-subscribe-tips]
+    other="We'll never share your email with anyone else."
+[footer-subscribe-placeholder]
+    other="Your Email."
+[footer-copyright]
+    other="All rights reserved."
+[footer-pv]
+    other="pv"
+[footer-pv-title]
+    other="Page Views"
+[footer-uv]
+    other="uv"
+[footer-uv-title]
+    other="Unique Visitors"
+[footer-cc-title]
+    other="This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License"
+[footer-hugo]
+    other="The world's fastest framework for building websites"
+[clipboardTips]
+    other="Oh! Copy successful. Thank you for your support!"
+[search-placeholder]
+    other="Search Contents……"
+[search-nbHits]
+    other="Results: "
+[search--nbHits-unit]
+    other=""
+[search-processTime]
+    other="ProcessTime: "
+[search-processTime-unit]
+    other=" MS"

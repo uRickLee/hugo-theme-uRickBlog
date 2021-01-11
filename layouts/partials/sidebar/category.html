@@ -1,0 +1,14 @@
+<div class="blog-sidebar card">
+    <div class="blog-sidebar-section -category">
+        <div class="center-line-title">
+            <!-- Blog category sidebar -->
+            <h5><a href="{{ "categories/" | relLangURL }}">{{ T `sidebar-categories` }}</a></h5>
+        </div>
+        {{ range  .Site.Taxonomies.categories }}
+        <a class="category -round" href="{{ .Page.Permalink }}">
+            <h5 class="title" >{{ .Page.Title }}</h5>
+            <h5 class="quantity">{{ .Count }}</h5>
+        </a>
+        {{ end }}
+    </div>
+</div>

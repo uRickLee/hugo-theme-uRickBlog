@@ -1,0 +1,16 @@
+{{- if .Title -}}
+<figure>
+    <div class="content-image" data-src="{{ .Destination | safeURL  }}" data-sub-html="{{ .Text }}">
+        <img src="{{ .Destination | safeURL  }}" alt="{{ .Text }}">
+        <figcaption class="image-caption">
+            <div class="image-title"> <span> {{- .Title | safeHTML -}} </span> </div>
+        </figcaption>
+    </div>
+</figure>
+{{- else -}}
+<figure>
+    <div class="content-image" data-src="{{ .Destination | safeURL  }}" data-sub-html="{{ .Text }}">
+        <img src="{{ .Destination | safeURL  }}" alt="{{ .Text }}">
+    </div>
+</figure>
+{{- end -}}

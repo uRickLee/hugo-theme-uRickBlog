@@ -1,0 +1,16 @@
+<!-- Blog Tags -->
+<div class="blog-sidebar card">
+    <div class="blog-sidebar-section -tags">
+        <div class="tags -utils">
+            <div class="col-12 col-md-6 col-lg-12">
+                <div class="center-line-title">
+                    <h5><a href="{{ "tags/" | relLangURL }}">{{ T `sidebar-tags` }}</a></h5>
+                </div>
+                <div class="tags-group">
+                    {{ range first .Site.Params.sidebar.tags .Site.Taxonomies.tags.ByCount }}
+                    <a class="tag-btn" href="{{ .Page.RelPermalink }}"> {{ .Page.Title }}</a> {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

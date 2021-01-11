@@ -1,0 +1,24 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<div class='pagination col-12 center card'>
+    <ul>
+        {{ $.Scratch.Set "hasPre" false }}
+        {{ $.Scratch.Set "hasNext" false }}
+
+        {{ range .Paginator.Pagers }}
+            {{ if eq . $.Paginator }}
+                <li class="active"><a href="javascript:void(0)"> {{- .PageNumber -}}</a></li>
+            {{ else if or (or (eq . $.Paginator.First) (eq . $.Paginator.Prev)) (or (eq . $.Paginator.Next) (eq . $.Paginator.Last )) }}
+                <li class="pagination__page-number"><a href="{{ .URL }}"> {{- .PageNumber -}}</a></li>
+            {{ else }}
+                {{ if and (not ($.Scratch.Get "hasPre")) (lt .PageNumber $.Paginator.PageNumber) }}
+                    {{ $.Scratch.Set "hasPre" true }}
+                    <li class="pagination__page-number"><a href="javascript:void(0)">&hellip;</a></li>
+                {{ else if and (not ($.Scratch.Get "hasNext")) (gt .PageNumber $.Paginator.PageNumber) }}
+                    {{ $.Scratch.Set "hasNext" true }}
+                    <li class="pagination__page-number"><a href="javascript:void(0)">&hellip;</a></li>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

@@ -1,0 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name='description' content='{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}'>
+    <title>{{ if .IsHome }} {{ printf "%s" .Title }} {{ else }} {{ printf "%s-%s" .Site.Params.authors .Title }} {{ end }}</title>
+    <link rel='canonical' href='{{ .Permalink }}' />
+    <meta name="created" content="{{ .Date.Format " 2006-01-02T15:04:05-0700" }}">
+    <meta name="modified" content="{{ .Lastmod.Format " 2006-01-02T15:04:05-0700" }}">
+    {{ with .Params.keywords }}
+    <meta name="keywords" content="{{ delimit $.Params.keywords " ," }}">
+    {{ end }}
+    {{ with .Params.tags }}
+    <meta name="keywords" content="{{ delimit $.Params.tags " ," }}">
+    {{ end }}
+    {{ template "_internal/opengraph.html" . }}
+    {{- partial "head/style.html" . -}}
+</head>

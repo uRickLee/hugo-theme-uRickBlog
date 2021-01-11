@@ -1,0 +1,24 @@
+[[main]]
+identifier = "home"
+name = "主页"
+pre = "home"
+url = "/"
+weight = 1
+[[main]]
+identifier = "archives"
+name = "归档"
+pre = "archives"
+url = "archives"
+weight = 2
+[[main]]
+identifier = "about"
+name = "关于我"
+pre = "about"
+url = "about"
+weight = 3
+# [[main]]
+# identifier = "navigation"
+# name = "导航"
+# pre = "navigation"
+# url = "navigation"
+# weight = 4

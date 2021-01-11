@@ -1,0 +1,39 @@
+//Default transition
+$transition : 0.2s ease-in-out;
+//Default colors
+$colors     : (
+    normalGray: #f5f5f5,
+    title: #141414,
+    subTitle: #595959,
+    white: #FFFFFF,
+    border: #E1E1E1,
+    card: #FFFFFF,
+    footer: #818394,
+    btnBg: rgba(67, 112, 245, .1),
+    btnBgHover: rgba(67, 112, 245, .2),
+    highlight: #6190E8,//theme highlight color
+    
+    // markdown base style
+    blockquoteBg: #f8f8f8,
+    iconfont: #6190E8,//icon color
+    blockquoteColor:#666,
+    highlightStyle:  #6190E8, // some highlight  #42b983
+    fontColor:#34495e,
+    code:#e96900,
+    thColor:#f2f2f2,
+    trColor:#fafafa,
+    preBg:#282a36,
+    preColor:#f8f8f2
+    );
+
+//Cross-browser
+$prefixes    : (webkit, moz, ms, o);
+//Rembaseline
+$rem-baseline: 16;
+//Breakpoint
+$breakpoint    : (sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
+    xxl: "1400px",
+    xxxl: "1770px", );

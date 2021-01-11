@@ -1,0 +1,24 @@
+[[main]]
+identifier = "home"
+name = "Home"
+pre = "home"
+url = "/"
+weight = 1
+[[main]]
+identifier = "archives"
+name = "Archives"
+pre = "archives"
+url = "archives"
+weight = 2
+[[main]]
+identifier = "about"
+name = "About"
+pre = "about"
+url = "about"
+weight = 3
+[[main]]
+identifier = "navigation"
+name = "Navigation"
+pre = "navigation"
+url = "navigation"
+weight = 4

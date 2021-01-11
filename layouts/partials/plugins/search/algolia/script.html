@@ -1,0 +1,100 @@
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script type="text/javascript">
+  (function initSearch() {
+    let $searchLoading = $("#search-loading");
+    let $searchScores = $("#search-scores");
+    let $searchNbHits = $("#search-count");
+    let $searchTime = $("#search-time");
+    const client = algoliasearch('{{ .Site.Params.search.appId }}', '{{ .Site.Params.search.searchKey }}');
+    const blogIndex = client.initIndex('blog');
+    function newHitsSource(index, params) {
+      return function doSearch(query, cb) {
+        $searchLoading.removeClass("d-none")
+        $searchNbHits.text('');
+        $searchTime.text('');
+        index.search(query, params).then(function (res) {
+          $searchNbHits.text(res.nbHits);
+          $searchTime.text(res.processingTimeMS);
+          $searchScores.removeClass("d-none")
+          $searchLoading.addClass("d-none")
+          cb(res.hits, res);
+        }).catch(function (err) {
+          console.error(err);
+          $searchLoading.addClass("d-none")
+          cb([]);
+        });
+      };
+    }
+    autocomplete('#search-input',
+      {
+        debug: true,
+        hint: false,
+        appendTo: '#search-input',
+        autoselect: true,
+        dropdownMenuContainer: '#search-dropdown-item',
+        clearOnSelected: true,
+        cssClasses: {
+          prefix: 'search',
+          root: '',
+          input: '',
+          hint: '',
+          suggestion: 'suggestion post-card -small -horizontal',
+        },
+      },
+      [
+        {
+          source: newHitsSource(blogIndex, {
+            hitsPerPage: 10,
+            offset: 0,
+            length: 100,
+            attributesToHighlight: ['title'],
+            attributesToSnippet: ['content:80', 'authors', 'title','categories'],
+            snippetEllipsisText: '…'
+          }),
+          displayKey: 'content',
+          name: 'blog',
+          templates: {
+            suggestion({ _snippetResult, relPermalink, image, tags, categories, date }) {
+              let sug = `<div>`;
+              if (image) {
+                sug += `<a class="card__cover" href="${relPermalink}"> <img src="${image}" alt="{{ .Title }}" /> </a>`
+              }
+              sug += `<div class="card__content">`;
+              if (categories) {
+                sug += `<h5 class="card__content-category"`;
+                if (categories.color) sug += `style="background-color:${categories.color}"`;
+                sug += `><a href="${categories.relPermalink}" title="{{ T `category-title` }}" >${categories.name}</a></h5>`;
+              }
+              sug += `<a class="card__content-title" href="${relPermalink}">${_snippetResult.title.value}</a>`;
+              sug += ` <div class="card__content-info">
+                    <div class="info__item" title="{{ T `publishDate-title` }}" ><i class="iconfont icon-calendar"></i>
+                      <p>${date}</p>
+                    </div>
+                    <div class="info__item" title="{{ T `authors-title` }}"><i class="iconfont icon-users"></i>
+                      <p>${_snippetResult.authors.value}</p>
+                    </div>
+                  </div>`;
+              sug += `<p class="card__content-description">${_snippetResult.content.value}</p>
+                  <div class="card__content-tags" title="{{ T `tag-title` }}"><i class="iconfont icon-tags"></i><p>`;
+              if (tags) {
+                tags.forEach(({ relPermalink, name }) => {
+                  sug += `<a href="${relPermalink}">${name}</a>`;
+                });
+              }
+              sug += `</p></div></div></div>`
+              return sug;
+            }
+          },
+        }
+      ]
+    ).on('autocomplete:updated', function (event, suggestion, dataset) {
+      if (!$('#search-input').val()) {
+        $searchNbHits.text('');
+        $searchTime.text('');
+        $searchScores.addClass("d-none")
+        $searchLoading.addClass("d-none")
+      }
+    });
+  })();
+</script>

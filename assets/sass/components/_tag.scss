@@ -1,0 +1,32 @@
+/***************************
+	Tag
+***************************/
+
+.tags {
+    &.-util {
+        .tags-group {
+            margin-bottom: emCal(16, 30);
+        }
+    }
+
+    .tag-btn {
+        @include button($color:setColor(subTitle), $fsz: 16px, $fw: 400, $pd: 6px 8px, $br: 2px);
+        display               : inline-block;
+        margin-right          : 10px;
+        margin-bottom         : 10px;
+        transition            : background-color .5s;
+        will-change           : background-color;
+
+        &:hover {
+            background: setColor(btnBgHover);
+        }
+    }
+
+    a {
+        color: inherit;
+
+        &:hover {
+            color: setColor(highlight) !important;
+        }
+    }
+}

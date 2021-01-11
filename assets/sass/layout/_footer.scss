@@ -1,0 +1,196 @@
+/***************************
+	Footer
+***************************/
+footer {
+  :focus {
+    color: setColor(highlight);
+  }
+
+  font-size       : emCal(16, 12);
+  background-color: #353f4c;
+  color           : #818394;
+
+  .footer-content {
+    padding: remCal(60) 0 remCal(60);
+
+    .footer-col {
+      @include mq(lg) {
+        margin-bottom: emCal(16, 40);
+      }
+
+      .title {
+        display      : flex;
+        align-items  : center;
+        margin-bottom: emCal(16, 40);
+        font-size    : 16px;
+        font-weight  : bold;
+        color        : setColor(normalGray);
+      }
+
+      &.-about {
+        p {
+          @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26), $fw: 400, $color: setColor(footer));
+        }
+
+        .contact-method {
+          margin-top: 15px;
+
+          p {
+            i {
+              width       : 8px;
+              margin-right: emCal(16, 21);
+              text-align  : center;
+              font-size   : emCal(16, 15);
+            }
+          }
+        }
+
+        .social {
+          margin-top: 15px;
+
+          .social-block {
+            a {
+              @include button($color: setColor(title),
+                $bg: setColor(normalGray),
+                $lh: emCal(15, 50),
+                $pd: 0,
+                $br: 999px,
+                $fsz      : 11px);
+              display     : inline-block;
+              height      : emCal(15, 50);
+              width       : emCal(15, 50);
+              margin-right: emCal(15, 15);
+              @include spaceTrim();
+            }
+          }
+        }
+      }
+
+      &.-link {
+        p {
+          @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26), $fw: 400, $color: setColor(footer));
+
+          a {
+            color: inherit;
+          }
+
+          margin-bottom: 10px;
+        }
+
+        .link-item {
+          margin-top: 15px;
+
+          p {
+            line-height: 3;
+
+            span {
+              padding-right : 5px;
+              padding-bottom: 10px;
+
+              a {
+                &:hover {
+                  font-weight: 900;
+                }
+              }
+            }
+          }
+        }
+
+        img {
+          border-radius: 50%;
+          width        : 20px;
+          height       : 20px;
+        }
+      }
+
+      &.-sub {
+        color        : inherit;
+        border-radius: emCal(16, 5);
+
+        p {
+          @include typo($color: footer, $fsz: emCal(16, 15), $lh: emCal(15, 20), $fw: 400);
+          margin-bottom       : emCal(15, 15);
+        }
+
+        input {
+          @include input($pd: emCal(16, 15) emCal(16, 15), $fsz: 12);
+          margin-bottom     : emCal(16, 16);
+        }
+
+        .btn {
+          @include button($color: setColor(white),
+            $fsz: emCal(16, 14),
+            $fw: 700,
+            $up: true,
+            $bg: setColor(highlight),
+            $pd: emCal(14, 20) emCal(14, 30),
+            $br  : emCal(14, 5));
+          display: inline-block;
+
+          @include mq(sm) {
+            font-size: 14px;
+          }
+
+          display: block;
+          padding: emCal(16, 15);
+        }
+      }
+    }
+  }
+
+  .copyright {
+    padding           : emCal(16, 25);
+    text-align        : center;
+    @include typo($fsz: emCal(16, 14), $fw: 400, $lh: emCal(14, 20));
+    color             : inherit;
+    background-color  : #1d2431;
+
+    i {
+      &.iconfont {
+        color: setColor(normalGray);
+      }
+    }
+
+    img {
+      border-width: 0;
+      height      : 20px;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        font-weight: 800;
+      }
+    }
+  }
+
+  .opr-fixed {
+    float     : right;
+    position  : fixed;
+    right     : 10px;
+    bottom    : 40px;
+    z-index   : 99;
+    margin    : 0;
+    padding   : 0;
+    list-style: none;
+
+    a {
+      display      : inline-block;
+      width        : 35px;
+      height       : 35px;
+      text-align   : center;
+      border-radius: 50%;
+      background   : setColor(subTitle);
+      color        : setColor(white);
+      font-size    : 20px;
+      line-height  : 35px;
+      padding      : 0;
+      margin-bottom: 5px;
+
+      &:hover {
+        background-color: setColor(highlight)
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{{ define "padding-class" }}pd{{ end }}
+{{ define "main" }}
+{{ $page := . }}
+<div class="blog-with-sidebar">
+  <div class="row">
+    <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-1">
+      <div class="search card">
+        <div class="search-header">
+          <div class="center-line-title">
+            <h5>{{ .Title }}</h5>
+          </div>
+          <input class="search-input" id="search-input" type="search" placeholder="{{ T `search-placeholder` }}">
+          <div class="search-scores">
+            <p id="search-scores" class="d-none">{{ T `search-nbHits` }}<span class="search-scores-count"
+                id="search-count"></span>{{ T `search-nbHits-unit` }},{{ T `search-processTime`}}<span id="search-time"
+                class="search-scores-time"></span>{{ T `search-processTime-unit`}}</p>
+            <p id="search-loading" class="d-none">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="margin: auto; background: rgb(255, 255, 255); display: block; user-select: auto; shape-rendering: auto;"
+                width="91px" height="91px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="50" cy="50" r="22" stroke-width="4" stroke="#d7d3d3"
+                  stroke-dasharray="34.55751918948772 34.55751918948772" fill="none" stroke-linecap="round"
+                  style="user-select: auto;">
+                  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="2s"
+                    keyTimes="0;1" values="0 50 50;360 50 50" style="user-select: auto;"></animateTransform>
+                </circle>
+              </svg>
+            </p>
+          </div>
+          <div class="search-power">
+            {{ with .Site.Params.search.enable }}
+            {{ partial (printf "plugins/search/%s/logo.html" .) $page }}
+            {{end }}
+          </div>
+        </div>
+        <div class="search-body">
+          <div class="search-dropdown-item" id="search-dropdown-item"> </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-5 col-lg-4 order-md-2 order-sm-1">
+      {{ partial "sidebar/feature.html" . }}
+      {{ partial "sidebar/category.html" . }}
+      {{ partial "sidebar/tags.html" . }}
+    </div>
+  </div>
+</div>
+</div>
+{{ with .Site.Params.search.enable }}
+{{ partial (printf "plugins/search/%s/script.html" .) $page }}
+{{end }}
+{{end }}

@@ -1,0 +1,10 @@
+{{ $sass := resources.Get "sass/style.scss" }}
+{{ $style := $sass | resources.ToCSS | minify }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+<link href="{{"/css/bootstrap.css" | relURL}}" rel="stylesheet">
+<link href="{{"/css/dracula.css" | relURL}}" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="{{ .Site.Params.logo }}" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2291749_0a53wh8l4nc7.css">
+
+<script src="{{"plugins/jquery.min.js" | relURL}}"></script>

@@ -1,0 +1,27 @@
+<div class="footer-col -about">
+    <div class="title">
+        <h5>{{ T `footer-aboutUS` }}</h5>
+    </div>
+    {{ with .Site.Params.footer.about.summary }}
+    <p> {{ . }} </p>
+    {{ end }}
+    <div class="contact-method">
+        {{ with .Site.Params.footer.about.coordinate }}
+        <p title="{{ T `footer-coordinate-title` }}"> <i class="iconfont icon-coordinate"></i>{{ . }}</p>
+        {{ end }} {{ with .Site.Params.footer.about.phone }}
+        <p title="{{ T `footer-phone-title` }}"> <i class="iconfont icon-dianhua"></i>{{ . }}</p>
+        {{ end }} {{ with .Site.Params.footer.about.email }}
+        <p title="{{ T `footer-email-title` }}"> <i class="iconfont icon-email"></i>{{ . }}</p>
+        {{ end }}
+    </div>
+    <div class="social">
+        <div class="social-block">
+            {{ range .Site.Params.social}}
+            <a href="{{ .url }}" title="{{ .present }}"><i class="{{ .icon }}" target="_bank"></i></a> 
+            {{ end }}
+            <a href="{{ "index.xml" | relURL }}" title="{{ T `footer-rss-title` }}" target="_bank"><i class="iconfont icon-rss"></i></a>
+            <a href="{{ "sitemap.xml" | relURL }}" title="{{ T `footer-sitemap-title` }}" target="_bank"><i class="iconfont icon-map"></i></a>
+        </div>
+    </div>
+</div>
+</div>

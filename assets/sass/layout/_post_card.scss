@@ -1,0 +1,293 @@
+/***************************
+	Post card
+***************************/
+.post-card {
+  font-size: 16px;
+
+  @include mq(lg) {
+    font-size: 15px;
+  }
+
+  @include mq(sm) {
+    font-size: 14px;
+  }
+
+  &.-center {
+    .card__content {
+      text-align: center;
+
+      &-info {
+        justify-content: center;
+      }
+    }
+  }
+
+  &.-right {
+    .card__content {
+      text-align: right;
+
+      &-info {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &.-horizontal {
+    display     : flex;
+    padding-left: 15px;
+
+    @include mq(sm) {
+      display: block;
+    }
+
+    .card__content {
+      flex: 1 1 auto;
+    }
+
+    .card__category {
+      position        : absolute;
+      background-color: setColor(highlight);
+      color           : #fff;
+      border-radius   : 3px;
+      padding         : emCal(16, 7) emCal(16, 10);
+      top             : 25px;
+      left            : 40px;
+      font-size       : 12px;
+      z-index         : 6;
+
+
+      @include mq(sm) {
+        top : 30px;
+        left: 40px;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .card__cover {
+      flex         : 0 0 auto;
+      margin-bottom: 0;
+      height       : emCal(16, 143);
+      width        : emCal(16, 236);
+
+      @include mq(sm) {
+        height: 100%;
+        width : 100%;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    &.-small {
+      .card__cover {
+        margin-right: emCal(16, 30);
+      }
+
+      .card__content {
+        &-description {
+          @include overflowText(2);
+        }
+      }
+    }
+
+    &.-large {
+      .card__cover {
+        min-height: 100%;
+        height    : auto;
+      }
+
+      .card__content {
+        padding         : emCal(16, 50);
+        background-color: setColor(normalGray);
+
+        @include mq(sm) {
+          &-description {
+            display: none;
+          }
+        }
+      }
+
+      @include mq(lg) {
+        flex-direction: column;
+
+        .card__cover,
+        .card__content {
+          // flex: 1 1 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  &.-tiny {
+    display      : flex;
+    margin-bottom: emCal(16, 15);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .card__cover {
+      border-radius: 3px;
+      margin-right : emCal(16, 20);
+      overflow     : hidden;
+      height       : 70px;
+      width        : 105px;
+      flex         : 1 1 30%;
+      max-width    : 30%;
+      margin-bottom: 0;
+
+      img {
+        @include imgCenter();
+      }
+    }
+
+    .card__content {
+      flex     : 1 1 70%;
+      max-width: 70%;
+
+      &-category {
+        display: none;
+      }
+
+      &-title {
+        font-size    : emCal(16, 16);
+        margin-bottom: emCal(16, 5);
+      }
+    }
+  }
+
+  &:hover {
+    .card__cover {
+      &>img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .card__cover {
+    display      : flex;
+    margin-bottom: emCal(16, 20);
+    border-radius: emCal(16, 5);
+    overflow     : hidden;
+
+    img {
+      @include imgCenter;
+      @include prefix(transition, $transition);
+    }
+  }
+
+  .card__content {
+    &-category {
+      @include typo($fsz: emCal(16, 12), $lh: 1, $fw: 700);
+      position          : relative;
+      display           : inline-block;
+      margin-bottom     : emCal(16, 20);
+      padding           : emCal(16, 7) emCal(16, 10);
+      background-color  : setColor(highlight);
+      color             : #fff;
+      border-radius     : 3px;
+
+      a {
+        color: inherit;
+      }
+
+      &:after {
+        content         : "";
+        position        : absolute;
+        bottom          : 0;
+        left            : 0;
+        width           : 100%;
+        height          : 8px;
+        background-color: #fb9d9d;
+        z-index         : -1;
+        transform       : translateY(40%);
+      }
+    }
+
+    &-title {
+      display                                                 : block;
+      margin-bottom                                           : emCal(16, 10);
+      @include link(setColor(title), setColor(highlight), $fsz: emCal(16, 20), $lh: emCal(16, 22), $cpt: true);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include overflowText(2);
+
+      @include mq(sm) {
+        margin-top: emCal(16, 8);
+      }
+    }
+
+    &-info {
+      display    : flex;
+      align-items: center;
+
+      .info__item {
+        margin-right: emCal(16, 15);
+      }
+
+      i,
+      p {
+        display           : inline-block;
+        @include typo($fsz: emCal(16, 13), $lh: 1, $fw: 400, $color: setColor(subTitle));
+      }
+
+      i {
+        color        : setColor(highlight);
+        margin-right : emCal(16, 10);
+        margin-bottom: emCal(16, 5);
+      }
+    }
+
+    &-description {
+      @include typo($fsz: emCal(16, 14), $lh: emCal(15, 25), $fw: 400, $color: setColor(subTitle));
+      margin-top        : emCal(16, 10);
+    }
+
+    &-tags {
+      margin-top: emCal(16, 10);
+
+      i,
+      p {
+        display           : inline-block;
+        @include typo($fsz: emCal(16, 13), $lh: 1, $fw: 400, $color: setColor(highlight));
+
+        a {
+          color: inherit;
+
+          &:hover {
+            color: setColor(highlight);
+          }
+
+          &::after {
+            content: ",";
+          }
+
+          &:last-child {
+            &::after {
+              content: "";
+            }
+          }
+        }
+      }
+
+      i {
+        color        : setColor(highlight);
+        margin-right : emCal(16, 10);
+        margin-bottom: emCal(16, 5);
+      }
+    }
+
+    .more-btn {
+      @include link(setColor(title), setColor(highlight), $fsz: emCal(16, 15), $fw: 700, $up: true, $bottom-dash: true);
+
+      &:after {
+        left: 0;
+      }
+    }
+  }
+}

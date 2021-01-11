@@ -1,0 +1,26 @@
+<header class="theme-default">
+    <div class="container">
+        <div class="header-wrapper">
+            <a class="header__logo" href="/"><img src="{{ .Site.Params.logo }}" alt="Logo" /></a>
+            <nav>
+                <ul>
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                    {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
+                    <li class="nav-item {{ if $active }} active {{end}}"><a href="{{ .URL | relLangURL }}">{{- .Name -}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </nav>
+            <div class="header__icon-group">
+                <a href="{{ "search" | relLangURL }}" class="search" id="search"><i class="iconfont icon-search"></i></a>
+                <div class="social">
+                    {{ range .Site.Params.social}}
+                    <a href="{{ .url }}" target="_bank"><i class="{{ .icon }}"></i></a>
+                    {{ end }}
+                    <a id="mobile-menu-controller" href="#"><i class="iconfont icon-menu"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

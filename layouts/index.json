@@ -1,0 +1,38 @@
+{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+{{- $result := slice -}}
+{{- range $pages -}}
+    {{- $data :=  (dict "title" .Title)  -}}
+    {{ $image := partialCached "utils/image.html" (dict "Context" . ) . }}
+    {{- if $image.exists -}}
+        {{- $data = merge $data (dict "image" $image.permalink)  -}}
+    {{- end -}}
+    {{- $data = merge $data (dict "date" (.Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006")))  -}}
+    {{- $data = merge $data (dict "relPermalink" .RelPermalink)  -}}
+    {{- $data = merge $data (dict "content" (.Plain))  -}}
+    {{- with .Params.authors -}}
+        {{- $data = merge $data (dict "authors" (delimit . ","))  -}}
+    {{- else -}}
+        {{- $data = merge $data (dict "authors" (.Site.Params.authors))  -}}
+    {{- end -}}
+    {{- if .Params.categories -}}
+        {{ $catColor := .Site.Data.catColor }}
+        {{- $categories := dict -}}
+        {{- range first 1 (.GetTerms "categories") -}}
+             {{- $color := (index $catColor .LinkTitle) -}}
+             {{- if $color -}} {{- $categories =  (dict "color"  $color  )  -}} {{- end -}}
+             {{- $categories = merge $categories (dict "relPermalink"  .RelPermalink "name" .LinkTitle  )  -}}
+        {{- end -}}
+        {{- $data = merge $data (dict "categories" $categories) -}}
+    {{- end -}}
+    {{- if .Params.tags -}}
+        {{- $tags := slice -}}
+        {{- range (.GetTerms "tags") -}}
+            {{- $tag := (dict "relPermalink"  .RelPermalink "name" .LinkTitle  )   -}}
+            {{- $tags = $tags | append $tag -}}
+        {{- end -}}
+        {{- $data = merge $data (dict "tags" $tags) -}}
+    {{- end -}}
+    {{- $result = $result | append $data -}}
+{{- end -}}
+
+{{- jsonify $result -}}

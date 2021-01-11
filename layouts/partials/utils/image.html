@@ -1,0 +1,20 @@
+{{ $result := dict "exists" false "permalink" nil }}
+{{ $imageField := default "image" .Context.Site.Params.imageField }}
+{{ $imageValue := index .Context.Params $imageField }}
+
+{{ if $imageValue }}
+    {{ $result = merge $result (dict "exists" true) }}
+    {{ $url := urls.Parse $imageValue }}
+    {{ if or (eq $url.Scheme "http") (eq $url.Scheme "https") }}
+        {{ $result = merge $result (dict "permalink" $imageValue) }}
+    {{ else }}
+        {{ $pageResourceImage := .Context.Resources.GetMatch (printf "%s" ($imageValue | safeURL)) }}
+        
+        {{ if $pageResourceImage }}
+            {{ $result = merge $result (dict "permalink" $pageResourceImage.RelPermalink) }}
+        {{ else }}
+            {{ $result = merge $result (dict "permalink" $imageValue) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ return $result }}

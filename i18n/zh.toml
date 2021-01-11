@@ -1,0 +1,87 @@
+[sidebar-post]
+    other = "推荐阅读"
+[sidebar-categories]
+    other = "分类"
+[sidebar-tags]
+    other = "标签"
+[publishDate-title]
+    other="文章发布时间"
+[readingTime-title]
+    other="预估阅读时间"
+[readingTime-unit]
+    other="分钟" 
+[authors-title]
+    other="文章创作人"
+[tag-title]
+    other="文章标签"
+[category-title]
+    other="文章分类"
+[post-type-title]
+    other="最新文章"
+[post-authors]
+    other="作者"
+[post-reading]
+    other="阅读"
+[post-publishDate]
+    other="时间"
+[post-uv]
+    other="浏览"
+[post-uv-title]
+    other="文章浏览量"
+[post-abstract]
+    other="文章摘要"
+[post-prev]
+    other="上一篇"
+[post-next]
+    other="下一篇"
+[post-toc]
+    other="目录"
+[post-from]
+    other="文章来源"
+
+[footer-aboutUS]
+    other="关于我"
+[footer-coordinate-title]
+    other="坐标"
+[footer-phone-title]
+    other="电话"
+[footer-email-title]
+    other="邮件"
+[footer-rss-title]
+    other="RSS订阅"
+[footer-sitemap-title]
+    other="站点地图"
+[footer-link]
+    other="友情链接"
+[footer-subscribe]
+    other="订阅"
+[footer-subscribe-tips]
+    other="请放心订阅，不会分享您的邮件信息！"
+[footer-subscribe-placeholder]
+    other="请输入您的邮件"
+[footer-copyright]
+    other="版权所有 "
+[footer-pv]
+    other="浏览量"
+[footer-pv-title]
+    other="本站总浏览量"
+[footer-uv]
+    other="访客量"
+[footer-uv-title]
+    other="本站总访客量"
+[footer-cc-title]
+    other="本作品采用《知识共享署名 4.0 国际许可协议》进行许可"
+[footer-hugo]
+    other="The world's fastest framework for building websites."
+[clipboardTips]
+    other="复制成功！感谢您的支持，若转载请注明出处，谢谢！"
+[search-placeholder]
+    other="请输入搜索内容……"
+[search-nbHits]
+    other="共"
+[search-nbHits-unit]
+    other="条"
+[search-processTime]
+    other="耗时"
+[search-processTime-unit]
+    other="毫秒"

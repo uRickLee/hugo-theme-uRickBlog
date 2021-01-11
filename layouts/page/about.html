@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="blog-with-sidebar">
+    <div class="row">
+        <div class="post col-12">
+            <div class="post-standard card">
+                <div class="post-standard__content">
+                    <h1 class="center">{{ .Title }}</h1>
+                    <div class="about-content">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+            <div class="about-comment">
+                {{ partial "plugins/comments/comment.html" . }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
