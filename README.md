@@ -18,6 +18,10 @@ Hugo： [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/
 6. Code highlighting
 7. Sitemap
 8. Pagination
+9. Multi-level menu
+10. GoogleAnalytics/GoogleTagManager/GoogleAdsense/BaiduAnalytics
+11. comments[disqus, utterances,gitalk]
+12. Custom style
 
 # Screenshot
 
