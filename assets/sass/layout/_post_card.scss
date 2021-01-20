@@ -75,7 +75,6 @@
       @include mq(sm) {
         height: 100%;
         width : 100%;
-        margin-bottom: 0.5em;
       }
     }
 
@@ -190,7 +189,10 @@
       border-radius     : 3px;
 
       a {
-        color: inherit;
+        color     : inherit;
+        // &:hover{
+        //   color: setColor(highlight);
+        // }
       }
 
       &:after {
@@ -261,16 +263,6 @@
 
           &:hover {
             color: setColor(highlight);
-          }
-
-          &::after {
-            content: ",";
-          }
-
-          &:last-child {
-            &::after {
-              content: "";
-            }
           }
         }
       }

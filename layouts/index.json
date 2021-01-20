@@ -9,10 +9,10 @@
     {{- $data = merge $data (dict "date" (.Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006")))  -}}
     {{- $data = merge $data (dict "relPermalink" .RelPermalink)  -}}
     {{- $data = merge $data (dict "content" (.Plain))  -}}
-    {{- with .Params.authors -}}
+    {{- with .Params.author -}}
         {{- $data = merge $data (dict "authors" (delimit . ","))  -}}
     {{- else -}}
-        {{- $data = merge $data (dict "authors" (.Site.Params.authors))  -}}
+        {{- $data = merge $data (dict "authors" (.Site.Params.author))  -}}
     {{- end -}}
     {{- if .Params.categories -}}
         {{ $catColor := .Site.Data.catColor }}

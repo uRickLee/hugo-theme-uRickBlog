@@ -1,5 +1,3 @@
-{{ if .Site.Params.comments.enable }} 
-<div class="card post-footer__comment">
-    {{ partial (printf "plugins/comments/%s" .Site.Params.comments.type) . }}
-</div>
+{{ if .Site.Params.comments.enabled }} 
+{{ partial (printf "plugins/comments/%s" .Site.Params.comments.type) . }}
 {{ end }}

@@ -23,7 +23,7 @@ footer {
         align-items  : center;
         margin-bottom: emCal(16, 40);
         font-size    : 16px;
-        font-weight  : bold;
+        font-weight: bold;
         color        : setColor(normalGray);
       }
 
@@ -47,18 +47,19 @@ footer {
 
         .social {
           margin-top: 15px;
-
           .social-block {
             a {
-              @include button($color: setColor(title),
+              @include button(
+                $color: setColor(title),
                 $bg: setColor(normalGray),
                 $lh: emCal(15, 50),
                 $pd: 0,
                 $br: 999px,
-                $fsz      : 11px);
-              display     : inline-block;
-              height      : emCal(15, 50);
-              width       : emCal(15, 50);
+                $fsz: 11px
+              );
+              display: inline-block;
+              height: emCal(15, 50);
+              width: emCal(15, 50);
               margin-right: emCal(15, 15);
               @include spaceTrim();
             }
@@ -86,12 +87,6 @@ footer {
             span {
               padding-right : 5px;
               padding-bottom: 10px;
-
-              a {
-                &:hover {
-                  font-weight: 900;
-                }
-              }
             }
           }
         }
@@ -104,8 +99,8 @@ footer {
       }
 
       &.-sub {
-        color        : inherit;
-        border-radius: emCal(16, 5);
+        color              : inherit;
+        border-radius      : emCal(16, 5);
 
         p {
           @include typo($color: footer, $fsz: emCal(16, 15), $lh: emCal(15, 20), $fw: 400);
@@ -154,14 +149,6 @@ footer {
     img {
       border-width: 0;
       height      : 20px;
-    }
-
-    a {
-      color: inherit;
-
-      &:hover {
-        font-weight: 800;
-      }
     }
   }
 

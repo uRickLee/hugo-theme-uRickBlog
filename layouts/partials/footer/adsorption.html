@@ -1,0 +1,31 @@
+<div class="opr-fixed">
+    {{ $enableTableContents := .Site.Params.enableTableContents }}
+    {{ if and ($enableTableContents) (eq .Type "post" ) }}
+        <div class="open-toc expanded" id="openToc">
+            <a href="#">
+                <i class="iconfont icon-toc"></i>
+            </a>
+        </div>
+    {{ end }}
+    {{ if .IsPage }}
+    <div class="go-comment">
+        <a href="#gitalk">
+            <i class="iconfont icon-comment"></i>
+        </a>
+    </div>
+    {{ end }}
+
+    {{ if .Site.Params.enableShare }}
+    {{ $text := printf "%s %s %s" .Title (.Description | default (.Param "description") ) .Permalink | absLangURL }}
+    <div class="share" data-clipboard-text="{{ $text }}" data-clipboard-tips="{{ T `clipboardTips` }}">
+        <a href="#">
+            <i class="iconfont icon-share"></i>
+        </a>
+    </div>
+    {{ end }}
+    <div class="go-top" id="goTop">
+        <a href="#">
+            <i class="iconfont icon-go-top"></i>
+        </a>
+    </div>
+</div>

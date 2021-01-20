@@ -5,12 +5,12 @@
             <div class="post-standard card">
                 <div class="post-standard__content">
                     <h1 class="center">{{ .Title }}</h1>
-                    <div class="about-content">
+                    <div class="p-5">
                         {{ .Content }}
                     </div>
                 </div>
             </div>
-            <div class="about-comment">
+            <div class="card post-footer__comment p-5">
                 {{ partial "plugins/comments/comment.html" . }}
             </div>
         </div>
