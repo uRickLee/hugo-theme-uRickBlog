@@ -2,7 +2,7 @@
 uRickBlog is a template based  Hugo,This is builted with [Fuse-Blog](https://github.com/kelvinconrad/fuse-Blog) Style.
 
 # Config 
-See example
+See example [Demo](https://urickblog-demo.vercel.app/)
 
 # Hugo Version
 At least v0.79.0/extended 
