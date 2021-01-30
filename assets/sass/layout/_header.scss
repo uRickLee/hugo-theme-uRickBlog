@@ -15,10 +15,12 @@ header {
     @include prefix(transition, $transition);
     @include flexAlign(center, space-between);
     .header__logo {
+      font-size: 1.5em;
       img {
         max-height: emCal(16, 25);
         object-fit: contain;
         margin-right: auto;
+
       }
     }
     nav {

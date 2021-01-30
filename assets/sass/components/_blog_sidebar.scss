@@ -23,6 +23,7 @@
 
             li {
                 padding-left: 10px;
+
                 a {
                     color: setColor(subTitle);
 
@@ -47,12 +48,11 @@
 
         &.-feature-post {
             font-size: emCal(16, 10);
-
-            
-            .-tiny{
+            .-tiny {
                 padding-bottom: 1em;
-                border-bottom: 1px dotted setColor(border);
-                &:last-child{
+                border-bottom : 1px dotted setColor(border);
+
+                &:last-child {
                     border-bottom: 0;
                 }
             }
@@ -61,6 +61,13 @@
         .center-line-title {
             &.-list {
                 font-size: 2rem;
+            }
+
+            h5 {
+                font-size    : remCal(16) !important;
+                font-weight: bold !important;
+                border-left : 4px solid setColor(highlightStyle) !important;
+                padding-left: emCal(16, 8) !important;
             }
         }
     }

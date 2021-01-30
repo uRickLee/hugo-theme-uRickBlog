@@ -3,8 +3,10 @@
     <div class="row">
         <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-1">
             <div class="row">
-                <div class="type-header-title">
-                    <h5><span>{{ T `post-type-title` }}</span></h5>
+                <div class="col card">
+                    <div class="type-header-title">
+                        <h5><span>{{ T `post-type-title` }}</span></h5>
+                    </div>
                 </div>
                 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
                 {{ $pag := .Paginate ($pages) }}
