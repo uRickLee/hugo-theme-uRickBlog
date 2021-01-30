@@ -22,3 +22,26 @@ weight = 3
 # pre = "navigation"
 # url = "navigation"
 # weight = 4
+# [[main]]
+# identifier = "more"
+# name = "更多"
+# url = "more"
+# weight = 4
+# [[main]]
+# parent = "more"
+# identifier = "test1"
+# name = "test1"
+# url = "test1"
+# weight = 1
+# [[main]]
+# parent = "more"
+# identifier = "test2"
+# name = "test2"
+# url = "test2"
+# weight = 2
+# [[main]]
+# parent = "more"
+# identifier = "test3"
+# name = "test3"
+# url = "test3"
+# weight = 3

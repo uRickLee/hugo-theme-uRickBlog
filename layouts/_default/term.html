@@ -1,7 +1,12 @@
 {{ define "main" }}
 <div class="blog-with-sidebar">
     <div class="row">
-        <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-1">
+        <div class="col-12 col-md-5 col-lg-4 order-md-2 order-sm-1">
+            {{ partial "sidebar/feature.html" . }}
+            {{ partial "sidebar/category.html" . }}
+            {{ partial "sidebar/tags.html" . }}
+        </div>
+        <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-2">
             <div class="row">
                 <div class="type-header-title">
                     {{- $taxonomies := .Data.Plural -}}
@@ -14,11 +19,6 @@
                 {{end }}
                 {{ partial "pagination.html" . }}
             </div>
-        </div>
-        <div class="col-12 col-md-5 col-lg-4 order-md-2 order-sm-2">
-            {{ partial "sidebar/feature.html" . }}
-            {{ partial "sidebar/category.html" . }}
-            {{ partial "sidebar/tags.html" . }}
         </div>
     </div>
 </div>

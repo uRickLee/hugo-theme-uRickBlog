@@ -1,20 +1,27 @@
-{{ $result := dict "exists" false "permalink" nil }}
+{{ $result := dict "exists" false "permalink" nil "resource" nil "isDefault" false }}
 {{ $imageField := default "image" .Context.Site.Params.imageField }}
 {{ $imageValue := index .Context.Params $imageField }}
 
 {{ if $imageValue }}
+    <!-- If page has `image` field set -->
     {{ $result = merge $result (dict "exists" true) }}
     {{ $url := urls.Parse $imageValue }}
+
     {{ if or (eq $url.Scheme "http") (eq $url.Scheme "https") }}
+        <!-- Is a external image -->
         {{ $result = merge $result (dict "permalink" $imageValue) }}
     {{ else }}
         {{ $pageResourceImage := .Context.Resources.GetMatch (printf "%s" ($imageValue | safeURL)) }}
         
         {{ if $pageResourceImage }}
+            <!-- If image is found under page bundle -->
             {{ $result = merge $result (dict "permalink" $pageResourceImage.RelPermalink) }}
         {{ else }}
+            <!-- Can not find the image under page bundle. Could be a relative linked image -->
             {{ $result = merge $result (dict "permalink" $imageValue) }}
         {{ end }}
+
     {{ end }}
 {{ end }}
+
 {{ return $result }}

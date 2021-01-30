@@ -28,7 +28,7 @@
             </p>
           </div>
           <div class="search-power">
-            {{ with .Site.Params.search.enable }}
+            {{ with .Site.Params.search.enabled }}
             {{ partial (printf "plugins/search/%s/logo.html" .) $page }}
             {{end }}
           </div>
@@ -47,7 +47,7 @@
   </div>
 </div>
 </div>
-{{ with .Site.Params.search.enable }}
+{{ with .Site.Params.search.enabled }}
 {{ partial (printf "plugins/search/%s/script.html" .) $page }}
 {{end }}
 {{end }}

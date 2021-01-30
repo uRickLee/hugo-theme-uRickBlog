@@ -1,13 +1,7 @@
 
 "use strict";
-
 //Variables
 const MOBILE_POINT = 768;
-const slideArrow = {
-  nextArrow: `<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>`,
-  prevArrow: `<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>`,
-};
-let currentCategoryLayout = "";
 
 //==========================================
 //  Utilities
@@ -48,7 +42,7 @@ function navDropdownHandle() {
       return;
     }
     $(".nav-item:has(.dropdown-menu)").prepend(
-      `<a href="#" class="dropdown-menu__controller"><i class="fas fa-plus"></i></a>`
+      `<a href="#" class="dropdown-menu__controller"><i class="iconfont icon-plus"></i></a>`
     );
 
     $(".dropdown-menu__controller").on("click", function (e) {
@@ -60,12 +54,12 @@ function navDropdownHandle() {
         .removeClass("show");
       $(this).siblings(".dropdown-menu").toggleClass("show");
       $(".dropdown-menu__controller i")
-        .removeClass("fa-minus")
-        .addClass("fa-plus");
+        .removeClass("icon-minus")
+        .addClass("icon-plus");
       if ($(this).siblings(".dropdown-menu").hasClass("show")) {
-        $(this).children().removeClass("fa-plus").addClass("fa-minus");
+        $(this).children().removeClass("icon-plus").addClass("icon-minus");
       } else {
-        $(this).children().removeClass("fa-minus").addClass("fa-plus");
+        $(this).children().removeClass("icon-minus").addClass("icon-pluss");
       }
     });
   }
@@ -162,7 +156,7 @@ function socialShare() {
 function fixedTocTarget() {
   $('.toc a,.go-comment>a').click(function () {
     var target = $(this).attr('href');
-    $('html, body').animate({ scrollTop: $(target).offset().top - 80 }, 300);
+    $('html, body').animate({ scrollTop: $(target).offset().top - 100 }, 500);
     return false;
   });
 }

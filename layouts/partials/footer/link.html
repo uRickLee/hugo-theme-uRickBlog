@@ -7,8 +7,8 @@
             {{ range .Site.Params.footer.links}}
             {{ $name := .name }}
             <span class="link"  title="{{ .present }}">
-                {{ with .icon }} <img src="{{ . }}" alt="{{ $name }}"> {{ end }}
-                <a href="{{ .url | relURL }}" target="_blank">{{ $name }}</a>
+            {{ with .icon }} <img src="{{ . }}" alt="{{ $name }}"> {{ end }}
+            <a href="{{ .url | relURL }}" target="_blank">{{ $name }}</a>
             </span>
             {{ end }}
         </p>

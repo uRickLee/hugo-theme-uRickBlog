@@ -2,7 +2,7 @@
 uRickBlog is a template based  Hugo,This is builted with [Fuse-Blog](https://github.com/kelvinconrad/fuse-Blog) Style.
 
 # Config 
-See example
+See example [Demo](https://urickblog-demo.vercel.app/)
 
 # Hugo Version
 At least v0.79.0/extended 
@@ -18,6 +18,10 @@ Hugo： [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/
 6. Code highlighting
 7. Sitemap
 8. Pagination
+9. Multi-level menu
+10. GoogleAnalytics/GoogleTagManager/GoogleAdsense/BaiduAnalytics
+11. comments[disqus, utterances,gitalk]
+12. Custom style
 
 # Screenshot
 

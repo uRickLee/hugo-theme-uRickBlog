@@ -1,7 +1,5 @@
 {{ $enableTableContents := .Site.Params.enableTableContents }}
-{{ $tocField := default "toc" .Site.Params.tocField }}
-{{ $paramToc := default "true" (index .Params $tocField) }}
-{{if and $enableTableContents $paramToc }}
+{{if $enableTableContents }}
     <div class="col-12 col-md-4 col-lg-4 order-md-2" id="sidebarToc">
         <div class="blog-sidebar">
             <div class="blog-sidebar-section -table-of-contents card">
@@ -15,7 +13,7 @@
         </div>
     </div>  
 {{ end }}
-<div class="col-12  {{if and $enableTableContents $paramToc }} col-md-8 col-lg-8 order-md-1 {{end}}" id="postContent">
+<div class="col-12  {{if $enableTableContents }} col-md-8 col-lg-8 order-md-1 {{end}}" id="postContent">
     <div class="row">
         <div class="post col-12" id="post">
             <div class="post-standard card">
@@ -25,22 +23,12 @@
                             <h1 class="center">{{ .Title }}</h1>
                             <div class="content_info">
                                 <p>
-                                    <span title="{{ T `authors-title` }}"> <i class="iconfont icon-users"></i>{{ T `post-authors` }}：{{ with .Params.authors }}{{ delimit . "," }}{{ else }}{{- .Site.Params.authors -}}{{ end }}</span> 
+                                    <span title="{{ T `authors-title` }}"> <i class="iconfont icon-users"></i>{{ T `post-authors` }}：{{ with .Params.author }} {{ delimit . "," }} {{ else }} {{- .Site.Params.author -}} {{ end }}</span> 
                                     <span title="{{ T `publishDate-title` }}"><i class="iconfont icon-calendar"></i>{{ T `post-publishDate` }}：{{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}} </span>
-                                    <span title="{{ T `readingTime-title` }}"><i class="iconfont icon-clock"></i>{{ T `post-reading` }}：{{- .ReadingTime -}}{{ T `readingTime-unit` }}</span>
+                                    <span title="{{ T `readingTime-title` }}"><i class="iconfont icon-clock"></i>{{ T `post-reading` }}：{{- .ReadingTime -}} {{ T `readingTime-unit` }}</span>
                                     <span title="{{ T `post-uv-title` }}"><i class="iconfont icon-views"></i>{{ T `post-uv` }}：<span id="busuanzi_value_page_pv"></span></span>
                                 </p>
                             </div>
-
-                            {{ $fromField := default "from" .Site.Params.fromField }}
-                            {{ $fromSrc := index .Params $fromField  }}
-
-                            {{ if $fromSrc }}
-                                <div class="content-src">
-                                   <i class="iconfont icon-sources"></i>{{ T `post-from` }}：<a href="{{ $fromSrc }} ">{{ $fromSrc }}</a>
-                                </div>
-                            {{ end  }}
-
                             {{ with .Param "description" }}
                             <div class="content_quote" title="{{ T `post-abstract` }}">
                                 <i class="iconfont icon-quote"></i> <quote>{{ . }}</quote>
@@ -58,7 +46,7 @@
                             {{ .Content }}
                             <div class="post-footer">
                                 {{ with .Params.tags }}
-                                <div class="post-footer__tags" title="{{ T `tag-title` }}">
+                                <div class="post-footer__tags " title="{{ T `tag-title` }}">
                                     <i class="iconfont icon-tags"></i>
                                     {{ range . }}
                                     <a href="/tags{{ . | relURL }}">{{ . }}</a> 
@@ -70,24 +58,29 @@
                                 <div class="post-footer__related">
                                     {{ with .Prev }}
                                     <div class="post-footer__related__item -prev ">
+                                        <!-- <a href="post_standard.html"> <i class="fas fa-chevron-left"></i>Previous posts</a> -->
                                         <div class="post-footer__related__item__content">
-                                            {{/*{{ T `post-prev` }}*/}}
+                                            <div>{{ T `post-prev` }}：</div>
                                             <div class="post-card ">
                                                 <div class="card__content">
-                                                    <a class="card__content-title" href="{{ .RelPermalink | relURL }}"><i class="iconfont icon-left"></i>{{ .Title }}</a>
+                                                    <!-- <h5 class="card__content-category">Open Source</h5> -->
+                                                    <a class="card__content-title" href="{{ .RelPermalink | relURL }}">{{ .Title }}</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     {{end}} {{ with .Next }}
                                     <div class="post-footer__related__item -next center">
+                                        <!-- <a href="#">Next posts<i class="fas fa-chevron-right"></i></a> -->
                                         <div class="post-footer__related__item__content">
-                                            {{/*{{ T `post-next` }}*/}}
+                                            <div>{{ T `post-next` }}：</div>
                                             <div class="post-card -right">
                                                 <div class="card__content">
-                                                    <a class="card__content-title" href="{{ .RelPermalink | relURL }}">{{ .Title }}<i class="iconfont icon-right"></i></a>
+                                                    <!-- <h5 class="card__content-category">Open Source</h5> -->
+                                                    <a class="card__content-title" href="{{ .RelPermalink | relURL }}">{{ .Title }}</a>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     {{ end }}
@@ -97,7 +90,9 @@
                     </div>
                 </div>
             </div>
-            {{ partial "plugins/comments/comment.html" . }}
+            <div class="card post-footer__comment">
+                {{ partial "plugins/comments/comment.html" . }}
+            </div>
         </div>
     </div>
 </div>

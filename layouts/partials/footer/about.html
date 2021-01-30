@@ -17,10 +17,10 @@
     <div class="social">
         <div class="social-block">
             {{ range .Site.Params.social}}
-            <a href="{{ .url }}" title="{{ .present }}"><i class="{{ .icon }}" target="_bank"></i></a> 
+            <a href="{{ .url }}" title="{{ .present }}"><i class="{{ .icon }}"></i></a> 
             {{ end }}
-            <a href="{{ "index.xml" | relURL }}" title="{{ T `footer-rss-title` }}" target="_bank"><i class="iconfont icon-rss"></i></a>
-            <a href="{{ "sitemap.xml" | relURL }}" title="{{ T `footer-sitemap-title` }}" target="_bank"><i class="iconfont icon-map"></i></a>
+            <a href="{{ "index.xml" | relURL }}" title="{{ T `footer-rss-title` }}"><i class="iconfont icon-rss"></i></a>
+            <a href="{{ "sitemap.xml" | relURL }}" title="{{ T `footer-sitemap-title` }}"><i class="iconfont icon-map"></i></a>
         </div>
     </div>
 </div>
