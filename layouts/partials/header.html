@@ -27,7 +27,7 @@
                 <a href="{{ "search" | relLangURL }}" class="search" id="search"><i class="iconfont icon-search"></i></a>
                 <div class="social">
                     {{ range .Site.Params.social}}
-                    <a href="{{ .url }}"><i class="{{ .icon }}"></i></a>
+                    <a href="{{ .url }}" title="{{ .desc }}"><i class="{{ .icon }}"></i></a>
                     {{ end }}
                     <a id="mobile-menu-controller" href="#"><i class="iconfont icon-menu"></i></a>
                 </div>

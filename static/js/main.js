@@ -168,6 +168,17 @@ function fixedTocTarget() {
 function banner() {
 }
 
+// init loading
+function load() {
+  const $load = $("#load");
+  if ($load) {
+    $(window).on("load", function () {
+      $load.fadeOut(100, function () {
+        $load.remove();
+      });
+    });
+  }
+}
 //Document ready
 $(function () {
   banner();
@@ -177,14 +188,5 @@ $(function () {
   scrollTop();
   socialShare();
   fixedTocTarget();
+  load();
 });
-
-// load 
-(function preload() {
-  const $load = $("#load");
-  $(window).on("load", function () {
-    $load.fadeOut(100, function () {
-      $load.remove();
-    });
-  });
-})();

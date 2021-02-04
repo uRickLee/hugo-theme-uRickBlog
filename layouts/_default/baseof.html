@@ -3,7 +3,7 @@
 {{- partial "head/index.html" . -}}
 <body>
     {{- partial  "header.html" . -}} 
-    {{- partialCached "utils/loader.html" . -}}
+   {{if .Site.Params.enableLoading }} {{- partialCached "utils/loader.html" . -}} {{ end }}
     <div class="{{ block `padding-class` . }}{{ end }} " id="content">
         <div class="container">
             {{- block "main" . }}{{- end }}
