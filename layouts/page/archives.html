@@ -9,9 +9,7 @@
          {{ $id := lower (replace .Key " " "-") }}
         <li class="archive-item">
             <h1 class="archive-title">
-              {{/*    <i class="iconfont icon-arrow-down-filling" ></i>
-                <i class="iconfont icon-arrow-right-filling" ></i>  */}}
-                {{ .Key }}
+                {{- .Key -}}
             </h1>
             <div id="{{ $id }}">
                 {{ range .Pages }}

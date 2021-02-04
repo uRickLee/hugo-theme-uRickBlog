@@ -1,0 +1,162 @@
+{{ define "main" }}
+{{- $navLink := .Site.Data.navLink -}}
+{{- $result := slice -}}
+<div class="nav-container">
+    <div class="row">
+        <div class="col-12 col-md-3 col-lg-3 order-md-1 order-sm-1">
+            <div class="card card-shadow">
+                <div class="row">
+                    <nav id="nav-menu" class="nav-menu">
+                        <ul>
+                            <li>
+                                <ul>
+                                    {{- range $navLink -}}
+                                    {{- $expand := .expand -}}
+                                    {{- $name := .name -}}
+                                    {{- $icon := .icon -}}
+                                    {{- with .children -}}
+                                    <li class="{{- if $expand -}}active{{- end -}}">
+                                        <a href="#{{- $name -}}">
+                                            {{- with $icon -}}
+                                            <i class="iconfont {{- . -}}"></i>
+                                            {{- end -}}
+                                            <span class="title">{{-  $name -}}</span>
+                                        </a>
+                                        {{- range . -}}
+                                        <ul>
+                                            <li class="nav-menu-scroll">
+                                                <a href="#{{- .name -}}">
+                                                    {{- with .icon -}}
+                                                    <i class="iconfont {{ . }}"></i>
+                                                    {{- end -}}
+                                                    <span class="title">{{- .name -}}</span>
+                                                </a>
+                                                {{- $subData := (dict "cat" .name "icon" .icon "hot" .hot ) -}}
+                                                {{- $subLinks := slice -}}
+                                                {{- range .links -}}
+                                                {{- $subLinks = $subLinks | append . -}}
+                                                {{- end -}}
+                                                {{- $subData := merge $subData (dict "links" $subLinks ) -}}
+                                            </li>
+                                        </ul>
+                                        {{- $result = $result | append $subData -}}
+                                        {{- end -}}
+                                        {{- else -}}
+                                        <li class="{{- if $expand -}}active{{- end -}}nav-menu-scroll">
+                                            <a href="#{{- .name -}}">
+                                                {{- with .icon -}}
+                                                <i class="iconfont {{ . }}"></i>
+                                                {{- end -}}
+                                                <span class="title">{{- .name -}}</span>
+                                            </a>
+                                        {{- $data := (dict "cat" .name "icon" .icon "hot" .hot ) -}}
+                                        {{- $links := slice -}}
+                                        {{- range .links -}}
+                                        {{- $links = $links | append . -}}
+                                        {{- end -}}
+                                        {{- $data := merge $data (dict "links" $links ) -}}
+                                        {{- $result = $result | append $data -}}
+                                        {{ end }}
+                                    </li>
+                                    {{ end }}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-9 order-md-2 order-sm-1">
+            {{- range $result -}}
+            <div class="card card-shadow">
+                <div class="row">
+                    <h4 class="nav-cat" id="{{- .cat -}}">
+                        {{- with .icon }} <i class="iconfont {{ . }}"></i>{{- end -}}
+                        <span>{{- .cat -}}</span>
+                        {{- if .hot -}}
+                        <svg t="1612362778389" class="icon" viewBox="0 0 1515 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="7898" width="32" height="32">
+                            <path
+                                d="M1332.209418 1.139575L182.65062 0.402757C81.952167 0.320889 0.20631 81.452731 0.20631 181.619038L0.001638 716.671669c-0.081869 100.166306 81.459317 181.420952 182.15777 181.461886l98.283327 0.327475 36.759029 125.259051 219.12147-123.253269 795.435907-1.596439c100.698453 0.081869 182.44431-81.090908 182.485244-181.21628l0.163738-535.093566c0.081869-100.125372-81.459317-181.380018-182.198705-181.461886v0.040934z"
+                                fill="#FFFFFF" p-id="7899" style="user-select: auto;"></path>
+                            <path
+                                d="M1514.244385 717.654093c-0.040934 100.125372-81.786792 181.298149-182.485244 181.21628l-795.435907 1.596439-219.12147 123.253269-36.759029-125.259051-98.283327-0.327475C81.460955 898.092621-0.080231 816.837975 0.001638 716.671669L0.20631 181.619038c0-100.166306 81.745858-181.298149 182.44431-181.216281l1149.558798 0.736818V1.098641c100.739387 0.081869 182.280573 81.336514 182.198705 181.461886l-0.163738 535.093566zM544.469166 241.997175h-82.073333v159.111742H301.56485V241.997175H219.491517v404.30838h82.073333v-176.836307h160.830983v176.836307h82.073333V241.997175z m394.443207 48.548115c-35.940342-36.9637-83.874443-55.425083-143.802303-55.425083-33.034005 0-62.261116 5.321463-87.599467 15.964389-19.034464 7.94126-36.554357 20.057822-52.55968 36.431554-16.005323 16.332798-28.654031 34.794181-37.90519 55.425083-12.362168 27.958148-18.543252 62.506722-18.543251 103.686659 0 64.348767 17.888302 114.861731 53.501169 151.497957 35.73567 36.718094 83.792574 55.01574 144.25258 55.015739 59.682254 0 107.411683-18.420449 143.106419-55.261345 35.653802-36.881832 53.460235-87.967876 53.460236-153.217199 0-65.822403-17.929237-117.194988-53.910513-154.117754zM1336.67126 241.997175h-323.094669v68.401266h120.674406v335.907114h82.073332V310.398441h120.346931V241.997175z m-540.701569 341.392315c-32.70653 0-59.723188-11.789087-80.968105-35.408196-21.326786-23.619109-31.887843-58.331421-31.887844-104.096002 0-46.542334 10.356386-81.336514 31.069157-104.423477 20.671837-23.046028 47.934101-34.589509 81.786792-34.589509 33.811757 0 60.951218 11.420678 81.377449 34.180166 20.426231 22.841356 30.659813 57.389931 30.659813 103.727593 0 46.869808-10.479189 81.991464-31.4785 105.446835s-47.852232 35.16259-80.558762 35.16259z"
+                                fill="#FF0F0F" p-id="7900" style="user-select: auto;"></path>
+                        </svg>
+                        {{- end -}}
+                    </h4>
+                </div>
+                <div class="row pr-1 pl-1">
+                    {{- range .links -}}
+                    <div class="col-sm-4">
+                        <div class="nav-content" title="{{- .link -}}" onclick="window.open('{{- .link -}}', '_blank')">
+                            <div class="nav-item">
+                                <div class="nav-item-title">
+                                    {{- with .img -}} <img src="{{- . }}"> {{ end -}}
+                                    <span class="of">
+                                        <strong>{{- .name -}}</strong>
+                                    </span>
+                                </div>
+                                <div class="nav-item-content">
+                                    <span class="of">{{- .desc -}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            {{- end -}}
+            {{ partial "plugins/comments/comment.html" . }}
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function initNav() {
+        let $nav = $("#nav-menu>ul>li>ul");
+        let $itemSub = $nav.find('li:has(> ul)');
+        $itemSub.filter('.active').addClass('expanded');
+        $itemSub.each(function (i, el) {
+            var $li = $(el),
+                $a = $li.children('a'),
+                $sub = $li.children('ul');
+
+            if ($li.hasClass('expanded')) {
+                $a.children('span').after('<i class="iconfont icon-arrow-down-filling pl-2" > </i>');
+            } else {
+                $a.children('span').after('<i class="iconfont icon-arrow-right-filling pl-2" > </i>');
+                $sub.addClass('is-hidden')
+            }
+
+            $a.on('click', function (ev) {
+                ev.preventDefault();
+                if ($li.hasClass('expanded')) {
+                    let $down = $(this).children('.icon-arrow-down-filling')
+                    if ($down) {
+                        $down.removeClass("icon-arrow-down-filling");
+                        $down.addClass("icon-arrow-right-filling");
+                    }
+                    collapse($li, $sub);
+                } else {
+                    let $right = $(this).children('.icon-arrow-right-filling')
+                    if ($right) {
+                        $right.removeClass("icon-arrow-right-filling");
+                        $right.addClass("icon-arrow-down-filling");
+                    }
+                    expand($li, $sub);
+                }
+            });
+
+            function expand($li, $sub) {
+                $li.addClass('expanded');
+                $sub.removeClass('is-hidden')
+            }
+
+            function collapse($li, $sub) {
+                $li.removeClass('expanded');
+                $sub.addClass('is-hidden')
+            }
+        });
+    })();
+</script>
+{{ end }}

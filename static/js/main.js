@@ -106,7 +106,6 @@ function menuScrollHandle() {
 }
 
 // ChangeToc
-
 function changeToc() {
   let $toc = $("#sidebarToc");
   let $content = $("#postContent");
@@ -130,6 +129,7 @@ function changeToc() {
 
 }
 
+// gotop
 function scrollTop() {
   $('#goTop').click(function () {
     $('body,html').animate({ scrollTop: 0 }, 400);
@@ -143,6 +143,7 @@ function scrollTop() {
   });
 }
 
+// socialShare
 function socialShare() {
   var clipboard = new ClipboardJS('.share');
   clipboard.on('success', function (e) {
@@ -153,18 +154,19 @@ function socialShare() {
   });
 }
 
+//href scroll
 function fixedTocTarget() {
-  $('.toc a,.go-comment>a').click(function () {
+  $('.toc a,.go-comment>a,.nav-menu-scroll>a ').click(function () {
+    debugger
     var target = $(this).attr('href');
     $('html, body').animate({ scrollTop: $(target).offset().top - 100 }, 500);
     return false;
   });
 }
 
-function banner(){
-  console.log()
+// banner
+function banner() {
 }
-
 
 //Document ready
 $(function () {
@@ -177,7 +179,7 @@ $(function () {
   fixedTocTarget();
 });
 
-
+// load 
 (function preload() {
   const $load = $("#load");
   $(window).on("load", function () {

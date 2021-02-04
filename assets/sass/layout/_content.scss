@@ -11,11 +11,11 @@
 }
 
 .type-header-title {
-  color        : setColor(title) !important;
-  border-left  : 4px solid setColor(highlightStyle);
-  align-items  : center;
-  font-size    : remCal(16);
-  padding-left : emCal(16, 8);
+  color       : setColor(title) !important;
+  border-left : 4px solid setColor(highlightStyle);
+  align-items : center;
+  font-size   : remCal(16);
+  padding-left: emCal(16, 8);
 
   span {
     font-weight: bold;
@@ -52,4 +52,10 @@
     }
   }
 
+  &-shadow {
+    box-shadow        : 0 5px 5px 0 rgba(0, 0, 0, .05);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .05);
+    -moz-box-shadow   : 0 5px 5px 0 rgba(0, 0, 0, .05);
+    
+  }
 }
