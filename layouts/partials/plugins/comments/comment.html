@@ -1,3 +1,3 @@
-{{ if .Site.Params.comments.enabled }} 
+{{ if .Site.Params.comments.enable }} 
 {{ partial (printf "plugins/comments/%s" .Site.Params.comments.type) . }}
 {{ end }}
