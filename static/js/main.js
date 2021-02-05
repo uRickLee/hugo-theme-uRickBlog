@@ -157,9 +157,9 @@ function socialShare() {
 //href scroll
 function fixedTocTarget() {
   $('.toc a,.go-comment>a,.nav-menu-scroll>a ').click(function () {
-    debugger
     var target = $(this).attr('href');
-    $('html, body').animate({ scrollTop: $(target).offset().top - 100 }, 500);
+    debugger
+    $('html, body').animate({ scrollTop: $(decodeURIComponent(target)).offset().top - 100 }, 500);
     return false;
   });
 }

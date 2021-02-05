@@ -9,27 +9,27 @@
                     <nav id="nav-menu" class="nav-menu">
                         <ul>
                             <li>
-                                <ul>
+                                <ul> 
                                     {{- range $navLink -}}
                                     {{- $expand := .expand -}}
                                     {{- $name := .name -}}
                                     {{- $icon := .icon -}}
                                     {{- with .children -}}
-                                    <li class="{{- if $expand -}}active{{- end -}}">
-                                        <a href="#{{- $name -}}">
+                                    <li class="{{- if $expand -}} active {{- end -}}">
+                                        <a href="#{{- $name | safeURL -}}">
                                             {{- with $icon -}}
                                             <i class="iconfont {{- . -}}"></i>
                                             {{- end -}}
-                                            <span class="title">{{-  $name -}}</span>
+                                            <span class="title">{{-  $name | safeHTML -}}</span>
                                         </a>
                                         {{- range . -}}
                                         <ul>
                                             <li class="nav-menu-scroll">
-                                                <a href="#{{- .name -}}">
+                                                <a href="#{{- .name | safeURL -}}">
                                                     {{- with .icon -}}
                                                     <i class="iconfont {{ . }}"></i>
                                                     {{- end -}}
-                                                    <span class="title">{{- .name -}}</span>
+                                                    <span class="title">{{- .name | safeHTML -}}</span>
                                                 </a>
                                                 {{- $subData := (dict "cat" .name "icon" .icon "hot" .hot ) -}}
                                                 {{- $subLinks := slice -}}
@@ -42,12 +42,12 @@
                                         {{- $result = $result | append $subData -}}
                                         {{- end -}}
                                         {{- else -}}
-                                        <li class="{{- if $expand -}}active{{- end -}}nav-menu-scroll">
-                                            <a href="#{{- .name -}}">
+                                        <li class="{{ if $expand }} active {{ end }} nav-menu-scroll">
+                                            <a href="#{{- .name | safeURL -}}">
                                                 {{- with .icon -}}
                                                 <i class="iconfont {{ . }}"></i>
                                                 {{- end -}}
-                                                <span class="title">{{- .name -}}</span>
+                                                <span class="title">{{- .name | safeHTML -}}</span>
                                             </a>
                                         {{- $data := (dict "cat" .name "icon" .icon "hot" .hot ) -}}
                                         {{- $links := slice -}}
@@ -72,7 +72,7 @@
                 <div class="row">
                     <h4 class="nav-cat" id="{{- .cat -}}">
                         {{- with .icon }} <i class="iconfont {{ . }}"></i>{{- end -}}
-                        <span>{{- .cat -}}</span>
+                        <span>{{- .cat | safeHTML -}}</span>
                         {{- if .hot -}}
                         <svg t="1612362778389" class="icon" viewBox="0 0 1515 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="7898" width="32" height="32">
@@ -95,14 +95,14 @@
                                     {{- with .logo -}} 
                                         <img src="{{- . -}}"> 
                                     {{- else -}}
-                                        <div class="nav-item-title-logo" style="color: {{- .logoColor -}};">{{- printf "%s" ( upper (substr .name 0 1)) -}}</div>
+                                        <div class="nav-item-title-logo" style="color: {{- .logoColor -}};">{{- (printf "%s" ( upper (substr .name 0 1))) | safeHTML -}}</div>
                                     {{- end -}}
                                     <div class="of">
-                                        <strong>{{- title .name -}}</strong>
+                                        <strong>{{- (title .name) | safeHTML -}}</strong>
                                     </div>
                                 </div>
                                 <div class="nav-item-content">
-                                    <div class="of">{{- .desc -}}</div>
+                                    <div class="of">{{- .desc | safeHTML -}}</div>
                                 </div>
                             </div>
                         </div>
