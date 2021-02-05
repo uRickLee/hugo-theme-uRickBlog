@@ -52,7 +52,7 @@
         height            : remCal(86);
         cursor            : pointer;
         border-radius     : remCal(4);
-        padding           : 0px remCal(15) 0px remCal(15);
+        padding           : 0px remCal(5) 0px remCal(5);
         background-color  : #fff;
         border-radius     : remCal(4);
         border            : 1px solid #e4ecf3;
@@ -80,19 +80,17 @@
         .of {
             overflow          : hidden;
             text-overflow     : ellipsis;
-            display           : -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
             transform         : none;
             -webkit-transform : none;
             -moz-transform    : none;
+            white-space: nowrap;
+            padding: remCal(5) 0;
         }
 
         .nav-item {
             &-title {
-                padding: remCal(5) 0;
-
                 img {
+                    margin-top: .1em;
                     float        : left;
                     display      : block;
                     margin-right : remCal(10);
@@ -101,19 +99,33 @@
                     height       : remCal(40);
                 }
 
-                span {
-                    float      : left;
-                    padding-top: remCal(10);
-
-                    strong {
-                        font-size: emCal(16, 16);
-                    }
+                strong {
+                    font-size: emCal(16, 16);
                 }
 
                 &::after {
                     display: table;
                     clear  : both;
                     content: "";
+                }
+                .of{
+                    padding-top: remCal(15) !important;
+                }
+
+                &-logo{
+                    font-size: emCal(16,32);
+                    font-weight: lighter;
+                    float: left;
+                    display: block;
+                    margin-top: .1em;
+                    margin-right: .625rem;
+                    border-radius: 50%;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    text-align: center;
+                    align-items: center;
+                    padding: remCal(6);
+                    border: 1px solid setColor(border)
                 }
             }
 

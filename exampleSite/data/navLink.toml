@@ -1,0 +1,73 @@
+# custom navigation link
+[Friends]
+name = 'Frends'
+hot = true # hot flag
+expand = false # expand nav
+icon =''
+weight = 1
+
+[[Friends.links]]
+name = 'Vnotex'
+link = 'https://vnotex.github.io/vnote/en_us/'
+logo = '/images/vnote.png'
+desc ='A note-taking application that knows programmers and Markdown'
+home = true
+
+[[Friends.links]]
+name = 'Hugo'
+link = 'https://gohugo.io/'
+logo = '/images/hugo-32x32.png'
+desc ='The world’s fastest framework for building websites'
+home = true
+
+[Tools]
+name = 'Test'
+hot = false # hot flag
+expand = true # expand nav
+icon = ''
+weight = 2
+
+[[Tools.children]]
+name = 'Tools1'
+icon = ''
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+
+[[Tools.children]]
+name = 'Tools2'
+icon = ''
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+[[Tools.children.links]]
+name = 'uTools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = ''
+logoColor = "#3498db" # The logo filed is empty to take effect
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+logo = '/images/logo.png'
+

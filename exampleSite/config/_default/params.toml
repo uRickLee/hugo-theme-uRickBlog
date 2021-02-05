@@ -1,4 +1,4 @@
-authors = "uRick" # default first Author
+author = "uRick" # default first Author
 description = "Hello,I am uRick😄."
 logo="https://gitee.com/uRick/oss/raw/master/blog/blog-favicon.png" 
 #logo="/images/logo.png" # images/avatar.png
@@ -11,6 +11,7 @@ enableTableContents=true
 googleTagManager = "" # GTM-XXXXXX
 baiduAnalytics = ""
 disableGoogleAdsense=true
+enableLoading=true # Page loading
 
 [dateFormat]
 lastUpdated = "2006-01-02"
@@ -49,17 +50,6 @@ coordinate = "Chengdu · China"
 email = "urickwork@gmail.com" 
 phone = "+86 1234 5486 1125"
 
-[footer.links]
-[footer.links.cocolian]
-icon = "/images/vnote.png"
-name = "Vnotex"
-present="A note-taking application that knows programmers and Markdown"
-url = "https://vnotex.github.io/vnote/en_us/"
-[footer.links.coolshell]
-present="The world’s fastest framework for building websites"
-name = "Hugo"
-icon = "/images/hugo-32x32.png"
-url = "https://gohugo.io/"
 [footer.sub]
 # footer end
 

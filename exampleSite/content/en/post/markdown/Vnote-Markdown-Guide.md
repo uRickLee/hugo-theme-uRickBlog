@@ -2,7 +2,7 @@
  title: "Vnote Markdown Guide"
  description: "Markdown is a way to style text via a few simple marker characters. You could write the document in plain text and then read it with a beautiful typesetting.There is no a standard Markdown syntax and many editor will add its own additional syntax. VNote supports only the widely-used basic syntax."
  date: "2020-11-20"
- authors: 
+ author: 
   - tamlok
  feature: true
  image: https://vnotex.github.io/vnote/zh_cn/_v_images/20181124160539465_1974001899.svg

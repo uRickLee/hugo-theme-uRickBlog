@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $navLink := .Site.Data.navLink -}}
+{{- $navLink :=  (sort .Site.Data.navLink "weight" ) -}}
 {{- $result := slice -}}
 <div class="nav-container">
     <div class="row">
@@ -92,13 +92,17 @@
                         <div class="nav-content" title="{{- .link -}}" onclick="window.open('{{- .link -}}', '_blank')">
                             <div class="nav-item">
                                 <div class="nav-item-title">
-                                    {{- with .img -}} <img src="{{- . }}"> {{ end -}}
-                                    <span class="of">
-                                        <strong>{{- .name -}}</strong>
-                                    </span>
+                                    {{- with .logo -}} 
+                                        <img src="{{- . -}}"> 
+                                    {{- else -}}
+                                        <div class="nav-item-title-logo" style="color: {{- .logoColor -}};">{{- printf "%s" ( upper (substr .name 0 1)) -}}</div>
+                                    {{- end -}}
+                                    <div class="of">
+                                        <strong>{{- title .name -}}</strong>
+                                    </div>
                                 </div>
                                 <div class="nav-item-content">
-                                    <span class="of">{{- .desc -}}</span>
+                                    <div class="of">{{- .desc -}}</div>
                                 </div>
                             </div>
                         </div>

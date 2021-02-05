@@ -4,7 +4,7 @@
  date: "2020-11-20"
  toc: true
  feature: true
- authors: 
+ author: 
   - uRick
  image: /images/emoji.png
  categories:

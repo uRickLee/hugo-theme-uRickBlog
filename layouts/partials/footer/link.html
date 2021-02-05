@@ -7,7 +7,7 @@
             {{ range where .Site.Data.navLink.Friends.links "home" true }}
             {{ $name := .name }}
                 <span class="link"  title="{{ .desc }}">
-                {{ with .img }} <img src="{{ . }}" alt="{{ $name }}"> {{ end }}
+                {{ with .logo }} <img src="{{ . }}" alt="{{ $name }}"> {{ end }}
                 <a href="{{ .link | relURL }}" target="_blank">{{ $name }}</a>
             </span>
             {{ end }}

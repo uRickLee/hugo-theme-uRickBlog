@@ -1,5 +1,5 @@
-baseurl = "http://example.org"
-defaultContentLanguage = "zh"
+baseurl = "https://urickblog-demo.vercel.app"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 # disableLanguages = ["en"]
 enableEmoji = true
@@ -7,13 +7,13 @@ enableGitInfo = false
 googleAnalytics = ""
 hasCJKLanguage = true
 ignoreFiles = ["_vnote.json", "_v_recycle_bin", "_v_images", "_v_attachments"] 
-languageCode = "zh"
+languageCode = "en"
 paginate = 10
 rssLimit = 100
 summaryLength = 70
 theme = "hugo-theme-uRickBlog"
 timeout = 10000
-title = "uRick"
+title = "hugo-theme-uRickBlog"
 
 [permalinks]
 page = "/:slug/"

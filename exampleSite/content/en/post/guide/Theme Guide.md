@@ -2,7 +2,7 @@
  title: "Theme Guide"
  description: "uRickBlog is a template based  Hugo,This is builted with Fluse Blog (https://github.com/kelvinconrad/fuse-Blog) Style."
  date: "2020-11-20"
- authors: 
+ author: 
   - uRick
  feature: true
  image: ""
@@ -196,6 +196,83 @@ admin = ""
 ## Categories Color
 ![Set Cat Color](/images/catColor.png)
 
+## Navigation Link
+
+file formatter
+
+```
+# custom navigation link
+[Friends]
+name = 'Frends'
+hot = true # hot flag
+expand = false # expand nav
+icon ='' # icon
+
+[[Friends.links]]
+name = 'Vnotex'
+link = 'https://vnotex.github.io/vnote/en_us/'
+img = '/images/vnote.png'
+desc ='A note-taking application that knows programmers and Markdown'
+home = true # site footer display
+
+[[Friends.links]]
+name = 'Hugo'
+link = 'https://gohugo.io/'
+img = '/images/hugo-32x32.png'
+desc ='The world’s fastest framework for building websites'
+home = true
+
+[Tools]
+name = 'Test'
+hot = false # hot flag
+expand = false # expand nav
+icon = ''
+
+[[Tools.children]]
+name = 'Tools1'
+icon = ''
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools11'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+
+[[Tools.children]]
+name = 'Tools2'
+icon = ''
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+[[Tools.children.links]]
+name = 'Tools21'
+link = 'http://www.tools.com'
+desc ='The Example'
+img = '/images/logo.png'
+```
+
+![navconfig](/images/navconfig.png)
 
 ## Summary
 Hugo Config Guide: [https://gohugo.io/getting-started/configuration/](https://gohugo.io/getting-started/configuration/)

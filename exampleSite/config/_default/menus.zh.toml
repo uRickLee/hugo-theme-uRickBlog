@@ -1,47 +1,43 @@
 [[main]]
 identifier = "home"
 name = "主页"
-pre = "home"
 url = "/"
 weight = 1
 [[main]]
 identifier = "archives"
 name = "归档"
-pre = "archives"
 url = "archives"
 weight = 2
 [[main]]
 identifier = "about"
 name = "关于我"
-pre = "about"
 url = "about"
 weight = 3
-# [[main]]
-# identifier = "navigation"
-# name = "导航"
-# pre = "navigation"
-# url = "navigation"
-# weight = 4
-# [[main]]
-# identifier = "more"
-# name = "更多"
-# url = "more"
-# weight = 4
-# [[main]]
-# parent = "more"
-# identifier = "test1"
-# name = "test1"
-# url = "test1"
-# weight = 1
-# [[main]]
-# parent = "more"
-# identifier = "test2"
-# name = "test2"
-# url = "test2"
-# weight = 2
-# [[main]]
-# parent = "more"
-# identifier = "test3"
-# name = "test3"
-# url = "test3"
-# weight = 3
+[[main]]
+identifier = "nav"
+name = "导航"
+url = "nav"
+weight = 4
+[[main]]
+identifier = "more"
+name = "更多"
+url = "more"
+weight = 5
+[[main]]
+parent = "more"
+identifier = "test1"
+name = "test1"
+url = "test1"
+weight = 1
+[[main]]
+parent = "more"
+identifier = "test2"
+name = "test2"
+url = "test2"
+weight = 2
+[[main]]
+parent = "more"
+identifier = "test3"
+name = "test3"
+url = "test3"
+weight = 3

@@ -2,7 +2,7 @@
  title: "Vnote Markdown Guide"
  description: "Markdown是一种通过少量简单的标记字符来格式化文本的方法。您可以用纯文本来书写文档，然后在阅读时呈现一个美观的排版。其实并没有一个标准的Markdown语法，很多编辑器都会添加自己的扩展语法。不同于此，为了兼容性，VNote仅仅支持那些被广泛使用的基本语法。"
  date: "2020-11-20"
- authors:
+ author:
   - tamlok
  feature: true
  image: https://vnotex.github.io/vnote/zh_cn/_v_images/20181124160539465_1974001899.svg
