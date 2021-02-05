@@ -65,7 +65,7 @@ header {
             position: absolute;
             @include prefix(transition, $transition);
             left: 0;
-            padding: 30px 50px;
+            padding: 20px 40px;
             background-color: #fff;
             box-shadow: 0px 5px 5px 0 rgba(48, 68, 78, 0.1);
             opacity: 0;

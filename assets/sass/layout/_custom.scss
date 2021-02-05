@@ -5,6 +5,15 @@
         font-size: emCal(16, 11);
     }
 
+    .center-line-title {
+        h5 {
+            font-size    : remCal(16) !important;
+            font-weight: bold !important;
+            border-left : 4px solid setColor(highlightStyle) !important;
+            padding-left: emCal(16, 8) !important;
+        }
+    }
+
     .nav-menu {
         padding-left : remCal(40);
         padding-right: remCal(40);
