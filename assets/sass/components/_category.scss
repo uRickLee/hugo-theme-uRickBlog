@@ -2,11 +2,8 @@
 	Category
 ***************************/
 .category {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: remCal(80);
-    @include mq(md) {
-      font-size: 14px;
-    }
     .category__header {
       display: flex;
       justify-content: space-between;
@@ -97,7 +94,7 @@
     &.-round {
         display: block;
         text-align: left;
-        @include link(setColor(subTitle), setColor(highlight), 16px);
+        @include link(setColor(subTitle), setColor(highlight), 14px);
         &:hover {
             .category__background {
                 transform: rotate(10deg);
@@ -126,7 +123,7 @@
     &.-square {
         display: block;
         text-align: center;
-        @include link(setColor(title), setColor(highlight), 16px, $up: true);
+        @include link(setColor(title), setColor(highlight), 14px, $up: true);
         &:hover {
             .category__background {
                 transform: translateY(-5px);

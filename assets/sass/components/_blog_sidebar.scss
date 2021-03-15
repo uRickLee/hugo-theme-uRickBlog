@@ -1,5 +1,5 @@
 .blog-sidebar {
-    font-size   : 16px;
+    font-size   : emCal(16, 14);
     padding-left: emCal(16, 30);
     color       : setColor(subTitle);
 
@@ -12,7 +12,7 @@
     }
 
     @include mq(sm) {
-        font-size: 15px;
+        font-size: emCal(16, 16);
     }
 
     .blog-sidebar-section {
@@ -71,4 +71,6 @@
             }
         }
     }
+
+    
 }

@@ -211,7 +211,7 @@
     &-title {
       display                                                 : block;
       margin-bottom                                           : emCal(16, 10);
-      @include link(setColor(title), setColor(highlight), $fsz: emCal(16, 20), $lh: emCal(16, 22), $cpt: true);
+      @include link(setColor(title), setColor(highlight), $fsz: emCal(16, 16), $lh: emCal(16, 22), $cpt: true);
 
       &:hover {
         text-decoration: underline;

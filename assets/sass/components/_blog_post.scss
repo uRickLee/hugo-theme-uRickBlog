@@ -2,7 +2,7 @@
 	Post detail
 ***************************/
 .post {
-    font-size  : emCal(16, 16);
+    font-size  : emCal(16, 14);
     line-height: emCal(16, 23);
   
     .post-standard {
@@ -34,7 +34,9 @@
         }
   
         img {
-          @include imgCenter;
+          // @include imgCenter;
+          max-width: 100%;
+          max-height: 100%;
           @include prefix(transition, $transition);
   
           &:hover {
@@ -43,6 +45,7 @@
         }
   
         .content-image {
+          text-align: center;
           overflow     : hidden;
           cursor       : pointer;
           border-radius: emCal(16, 3)
@@ -227,7 +230,7 @@
     }
 }
 .post-footer {
-  font-size: 16px;
+  font-size: emCal(16, 14);
   margin-top: emCal(16, 30);
   margin-bottom: 0;
   line-height: 2;
@@ -269,7 +272,7 @@
                   // border-radius: emCal(16, 3);
               }
               .card__content-title {
-                  font-size: emCal(16, 18);
+                  font-size: emCal(16, 16);
               }
           }
           &.-prev {

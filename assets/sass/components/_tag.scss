@@ -10,7 +10,7 @@
     }
 
     .tag-btn {
-        @include button($color:setColor(subTitle), $fsz: 16px, $fw: 400, $pd: 6px 8px, $br: 2px);
+        @include button($color:setColor(subTitle), $fsz: 14px, $fw: 400, $pd: 6px 8px, $br: 2px);
         display               : inline-block;
         margin-right          : 10px;
         margin-bottom         : 10px;

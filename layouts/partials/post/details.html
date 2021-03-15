@@ -34,14 +34,15 @@
                                 <i class="iconfont icon-quote"></i> <quote>{{ . }}</quote>
                             </div>
                             {{ end }}
-                            {{ $image := partialCached "utils/image.html" (dict "Context" . ) . }}
+                            {{/*  post cover  */}}
+                            {{/*  {{ $image := partialCached "utils/image.html" (dict "Context" . ) . }}
                             {{ if $image.exists }}
                             <figure>
                                 <div class="content-image" data-src="{{$image.permalink}}" data-sub-html="{{ .Title }}">
                                     <img src="{{$image.permalink}}" alt="{{ .Title }}" />
                                 </div>
                             </figure>
-                            {{end }}
+                            {{end }}  */}}
                             <!-- post content -->
                             {{ .Content }}
                             <div class="post-footer">
