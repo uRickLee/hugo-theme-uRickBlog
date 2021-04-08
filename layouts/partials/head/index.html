@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name='description' content='{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}'>
+    <meta name='description' content='{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.desc }}{{ . }}{{ end }}{{ end }}{{ end }}'>
     <title>{{ if .IsHome }} {{ printf "%s" .Title }} {{ else }} {{ printf "%s-%s" .Site.Params.author .Title }} {{ end }}</title>
     <link rel='canonical' href='{{ .Permalink }}' />
     <meta name="created" content="{{ .Date.Format " 2006-01-02T15:04:05-0700" }}">

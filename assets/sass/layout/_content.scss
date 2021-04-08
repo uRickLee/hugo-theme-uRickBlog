@@ -16,9 +16,9 @@
   align-items : center;
   font-size   : remCal(16);
   padding-left: emCal(16, 8);
-
   span {
     font-weight: bold;
+    padding-right: .5em;
   }
 }
 

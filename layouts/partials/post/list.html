@@ -40,9 +40,9 @@
                 </div>
             </div>
             {{ with .Param "description" }}
-            <p class="card__content-description"> {{ . }} </p>
+                <p class="card__content-description"> {{ . }} </p>
             {{ else }}
-            <p class="card__content-description"> {{ .Summary }} </p>
+                <p class="card__content-description"> {{ .Summary }} </p>
             {{ end }}
 
             {{ if .Params.tags }}

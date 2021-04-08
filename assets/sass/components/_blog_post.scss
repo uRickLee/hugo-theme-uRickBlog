@@ -127,14 +127,21 @@
           margin-bottom   : 1em;
         }
   
+        .highlight{
+          pre,code,span{
+          font-family: Consolas,monospace,Microsoft Yahei,SFMono-Regular,Menlo,Monaco,
+          "Liberation Mono","Courier New",Microsoft Sans Serif,sans-serif !important;
+          }
+        }
+
         pre {
-          padding         : 1rem 1rem 1rem 1rem !important;
+          padding         : .5rem !important;
           border-radius   : 0.35rem;
           tab-size        : 4;
           overflow-x      : auto;
           line-height     : 0.2;
           color           : setColor(preColor);
-          background-color: setColor(preBg);
+          background-color: setColor(preBg) !important;
           margin-top      : 1rem;
           margin-bottom   : 0.5rem;
         }
@@ -150,8 +157,6 @@
         code {
           padding: 1px 5px;
           top    : 13px !important;
-          font-family: JetBrains Mono, Consolas, monospace, Microsoft YaHei, Inconsolata, Monaco, "Courier New", Courier,
-            sans-serif !important;
           font-size    : 0.8rem;
           border-radius: 2px;
           line-height  : 1.3;

@@ -151,8 +151,14 @@
       }
 
       &-title {
-        font-size    : emCal(16, 16);
+        font-size    : emCal(16, 13);
+        font-weight: 500;
         margin-bottom: emCal(16, 5);
+      }
+       &-description {
+          @include overflowText(2);
+          margin-top: 0 !important;
+          @include typo($fsz: emCal(16, 13), $lh: 1.4, $fw: 400, $color: setColor(subTitle));
       }
     }
   }
@@ -211,7 +217,7 @@
     &-title {
       display                                                 : block;
       margin-bottom                                           : emCal(16, 10);
-      @include link(setColor(title), setColor(highlight), $fsz: emCal(16, 16), $lh: emCal(16, 22), $cpt: true);
+      @include link(setColor(title), setColor(highlight),$fw:550, $fsz: emCal(16, 16), $lh: emCal(16, 22), $cpt: true);
 
       &:hover {
         text-decoration: underline;

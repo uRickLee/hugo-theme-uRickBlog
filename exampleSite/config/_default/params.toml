@@ -1,5 +1,5 @@
 author = "uRick" # default first Author
-description = "Hello,I am uRick😄."
+desc = "Hello,I am uRick😄."
 logo="https://gitee.com/uRick/oss/raw/master/blog/blog-favicon.png" 
 #logo="/images/logo.png" # images/avatar.png
 imageField = "image" # src

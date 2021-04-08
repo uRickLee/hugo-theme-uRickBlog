@@ -8,9 +8,11 @@
         </div>
         <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-2">
             <div class="row">
-                <div class="type-header-title">
-                    {{- $taxonomies := .Data.Plural -}}
-                    <h5><span>{{ T ( printf "sidebar-%s" $taxonomies) }}</span>:{{ .Title }}({{ len .Pages }})</h5>
+                <div class="col card">
+                    <div class="type-header-title">
+                        {{- $taxonomies := .Data.Plural -}}
+                        <h5><span>{{ T ( printf "sidebar-%s" $taxonomies) }}:</span>{{ .Title }}({{ len .Pages }})</h5>
+                    </div>
                 </div>
 
                 {{ $filter := .Paginate (.Pages) }}
